@@ -13,7 +13,7 @@
     font-weight: 300;
     margin-top: 0;
     margin-bottom: 0.5em;
-    margin-left: -5;
+    margin-left: -5px;
   }
 
   h3 {
@@ -141,13 +141,21 @@
     min-width: 900px;
     width:100%;
     height: 650px;
-    /*padding-left: 100px;*/
-    /*padding-right: 100px;*/
     background: url("/images/background.jpg") #111 top center no-repeat;
     background-size: auto 650px;
-
     color: #eee;
+    position: relative;
+  }
 
+    .bio {
+    padding: 10px;
+    background: #282828;      //IE?
+    background-color: #282828;
+    background-color: rgba(0,0,0,0.6);
+    position: relative;
+    top:80px;
+    left:50%;
+    max-width:423px;
   }
 
   .navbar-wrapper {
@@ -170,7 +178,7 @@
   }
 
   .navbar h1 {
-    font-size: 48;
+    font-size: 48px;
     margin-top: 10px;
     text-shadow: 0 0 1px #000;
   }
@@ -185,6 +193,7 @@
 
   .highlight {
     padding:15px;
+    overflow-x: scroll;
   }
 
   .highlight pre {
@@ -193,16 +202,7 @@
 
 
 
-  .bio {
-    padding: 10px;
-    background: #282828;      //IE?
-    background-color: #282828;
-    background-color: rgba(0,0,0,0.6);
-    position: relative;
-    top:80px;
-    left:50%;
-    max-width:423px;
-  }
+
 
   /* social icons */
 
