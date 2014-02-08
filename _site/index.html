@@ -10,42 +10,101 @@
         <link rel="stylesheet" href="/css/syntax.css">
 
         <!-- Custom CSS -->
-        <link rel="stylesheet" href="/css/main.css">
+        <!-- <link rel="stylesheet" href="/css/main.css"> -->
+
+
+        <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900' rel='stylesheet' type='text/css'>
+        <link rel='stylesheet' href='/css/styles.css' type='text/css'/>
 
     </head>
     <body>
 
-        <div class="site">
-          <div class="header">
-            <h1 class="title"><a href="/">Your New Jekyll Site</a></h1>
-            <a class="extra" href="/">home</a>
-          </div>
-
-          <div id="home">
+        <div id="home">
   <h1>Blog Posts</h1>
   <ul class="posts">
     
-      <li><span>26 Jan 2014</span> &raquo; <a href="/jekyll/update/2014/01/26/welcome-to-jekyll.html">Welcome to Jekyll!</a></li>
+      <li><span>26 Jan 2014</span> &raquo; <a href="/posts/welcome-to-jekyll">Welcome to Jekyll!</a></li>
+    
+      <li><span>27 Jan 2014</span> &raquo; <a href="/posts/test-post">New Test Post</a></li>
     
   </ul>
 </div>
 
-          <div class="footer">
-            <div class="contact">
-              <p>
-                Your Name<br />
-                What You Are<br />
-                you@example.com
-              </p>
-            </div>
-            <div class="contact">
-              <p>
-                <a href="https://github.com/yourusername">github.com/yourusername</a><br />
-                <a href="https://twitter.com/yourusername">twitter.com/yourusername</a><br />
-              </p>
-            </div>
-          </div>
+
+<div class="banner">
+    <div class="bio">
+
+      <h1>Kannan C.</h1>
+
+      <p>Hi! I don&rsquo;t think we&rsquo;ve met. </p>
+
+      <p>I&rsquo;m Kannan. I write code. I&rsquo;ve also written plays, songs, and a standup act. <br>But it&rsquo;s mostly just code.</p>
+
+      <p>I&rsquo;m a web and mobile programmer currently based out of Hong Kong. <br>I develop apps for both iOS and Android, and I&rsquo;m usually messing with HTML, CSS and Javascript.</p>
+
+      <p>I enjoy picking up and learning new platforms, and I love coding for the web. I like clever solutions, quirky UIs, and elegant code.</p>
+
+      <p>I&rsquo;m currently building mobile apps at <a href="http://www.ambiclimate.com" onClick="trackOutboundLink(this, 'Outbound Links', 'ambiclimate.com'); return false;">Ambi Labs</a>. </p>
+
+      <div class="social-wrapper">
+        <a class='symbol' id="social-fb" href='http://www.facebook.com/kannan.chandra' onClick="trackOutboundLink(this, 'Outbound Links', 'facebook'); return false;">&#xe427;</a>
+        <a class='symbol' id="social-linkedin" href='http://www.linkedin.com/in/kannanchandra' onClick="trackOutboundLink(this, 'Outbound Links', 'linkedin'); return false;">&#xe452;</a>
+        <a class='symbol' id="social-twitter" href='http://twitter.com/kannanator' onClick="trackOutboundLink(this, 'Outbound Links', 'twitter'); return false;">&#xe486;</a>
+        <a class='symbol' id="social-email" href='mailto:hello@kannan-chandra.com'>&#xe424;</a>
+      </div>
+
+    </div>
+  </div>
+  <div class="content-wrapper">
+    <div class="section" id="projects">
+      <h2><span>Projects</span></h2>
+      <div class="project-wrapper" style="background-image:url('/images/project-pic-1.png')">
+        <div class="project-content">
+          <h3>Hobo</h3>
+          <p>A script that periodically checks websites for changes</p>
         </div>
+      </div>
+      <div class="project-wrapper" style="background-image:url('/images/project-pic-2.png')">
+        <div class="project-content">
+          <h3>Pogo</h3>
+          <p>A script that makes your dock go bounce bounce</p>
+        </div>
+      </div>
+      <div class="project-wrapper" style="background-image:url('/images/project-pic-3.png')">
+        <div class="project-content">
+          <h3>Dodo</h3>
+          <p>A script that makes your CSS go extinct</p>
+        </div>
+      </div>
+    </div>
+    <div class="section" id="posts">
+      <h2><span>Posts</span></h2>
+
+      
+      	<div class="post">
+      		<h3>Welcome to Jekyll!</h3>
+      		<p>You&#39;ll find this post in your <code>_posts</code> directory - edit this post and re-build (or run with the <code>-w</code> switch) to see your changes!
+To add new posts, simply add a file in the <code>_posts</code> directory that follows the convention: YYYY-MM-DD-name-of-post.ext.</p>
+
+      	</div>
+      
+      	<div class="post">
+      		<h3>New Test Post</h3>
+      		<p>hello!</p>
+
+      	</div>
+      
+
+      <div class="post">
+        <h3>Why responsive web design is a pain</h3>
+        <p>You&#39;ll find this post in your <code>_posts</code> directory - edit this post and re-build (or run with the <code>-w</code> switch) to see your changes!
+        To add new posts, simply add a file in the <code>_posts</code> directory that follows the convention: YYYY-MM-DD-name-of-post.ext.</p>
+
+        <p>Jekyll also offers powerful support for code snippets:</p>
+      </div>
+
+    </div>
+  </div>
 
     </body>
 </html>
