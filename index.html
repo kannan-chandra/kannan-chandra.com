@@ -3,16 +3,6 @@ layout: default
 title: Your New Jekyll Site
 ---
 
-<div id="home">
-  <h1>Blog Posts</h1>
-  <ul class="posts">
-    {% for post in site.posts %}
-      <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a></li>
-    {% endfor %}
-  </ul>
-</div>
-
-
 <div class="banner">
     <div class="bio">
 
@@ -59,23 +49,18 @@ title: Your New Jekyll Site
         </div>
       </div>
     </div>
+
     <div class="section" id="posts">
       <h2><span>Posts</span></h2>
 
       {% for post in site.posts %}
       	<div class="post">
-      		<h3>{{ post.title }}</h3>
+          <!-- {{ post.date | date_to_string }} -->
+      		<a href="{{ post.url }}"><h3>{{ post.title }}</h3></a>
       		{{ post.excerpt }}
       	</div>
       {% endfor %}
 
-      <div class="post">
-        <h3>Why responsive web design is a pain</h3>
-        <p>You&#39;ll find this post in your <code>_posts</code> directory - edit this post and re-build (or run with the <code>-w</code> switch) to see your changes!
-        To add new posts, simply add a file in the <code>_posts</code> directory that follows the convention: YYYY-MM-DD-name-of-post.ext.</p>
-
-        <p>Jekyll also offers powerful support for code snippets:</p>
-      </div>
 
     </div>
   </div>
