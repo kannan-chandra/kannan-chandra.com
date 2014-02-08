@@ -26,6 +26,10 @@
     font-weight: 400;
   }
 
+  .highlight code {
+    font-family: Menlo, Monaco, monospace;
+  }
+
   .bio p {
     font-size: 16px;
     font-weight: 300;
@@ -179,6 +183,16 @@
     display: block;
   }
 
+  .highlight {
+    padding:15px;
+  }
+
+  .highlight pre {
+    margin: 0px;
+  }
+
+
+
   .bio {
     padding: 10px;
     background: #282828;      //IE?
@@ -266,7 +280,7 @@
       left:inherit;
       max-width:inherit;
       width: 100%;
-      bottom:38px;
+      bottom:0px;
       box-sizing:border-box;
     }
 
