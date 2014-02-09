@@ -42,7 +42,7 @@
         
         <!-- 09 Feb 2014 -->
 
-        <p>This past week I&#39;ve been checking out Appsee, a cool app user analytics tool. The app I&#39;m integrating this into is built using Xamarin.iOS, which Appsee doesn&#39;t support out of the box. This means creating a C# binding for the Appsee static library. I got it working after some Googling, and I thought I&#39;d put together a post documenting the process.</p>
+        <p>This past week I&#39;ve been checking out <a href="http://www.appsee.com/">Appsee</a>, a cool app user analytics tool. The app I&#39;m integrating this into is built using <a href="http://xamarin.com/ios">Xamarin.iOS</a>, which Appsee doesn&#39;t support out of the box. This means creating a C# binding for the Appsee static library. I got it working after some Googling, and I thought I&#39;d put together a post documenting the process.</p>
 
 <p>First head over to the Appsee site and grab the latest UIKit SDK. </p>
 
@@ -56,7 +56,7 @@
 
 <p><img src="/images/xamarin-binding-appsee-3.png" alt=""></p>
 
-<p>Next, we need to generate the API definitions. This is the part where we define the C# methods and properties that are going to be available to you. You can do this manually if you want, but a really quick way to do it is to use a tool from Xamarin called Objective Sharpie. http://docs.xamarin.com/guides/ios/advanced<em>topics/binding</em>objective-c/objective_sharpie/.</p>
+<p>Next, we need to generate the API definitions. This is the part where we define the C# methods and properties that are going to be available to you. You can do this manually if you want, but a really quick way to do it is to use a tool from Xamarin called <a href="http://docs.xamarin.com/guides/ios/advanced_topics/binding_objective-c/objective_sharpie/">Objective Sharpie</a>.</p>
 
 <p>Download it and run it. Select the target version as appropriate. On the next screen, add the header file we saw earlier.</p>
 
