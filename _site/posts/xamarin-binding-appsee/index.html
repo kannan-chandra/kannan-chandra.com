@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Creating Xamarin.iOS bindings for a native library</title>
+        <meta name="viewport" content="width=device-width">
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <!-- <link rel="stylesheet" href="/css/main.css"> -->
+
+
+        <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700' rel='stylesheet' type='text/css'>
+        <link rel='stylesheet' href='/css/styles.css' type='text/css'/>
+
+    </head>
+    <body>
+
+        <div class="navbar-wrapper banner">
+    <div class="navbar">
+      <div class="content-wrapper">
+        <h1>Kannan C.</h1>
+
+        <div class="social-wrapper">
+          <a class='symbol' id="social-fb" href='http://www.facebook.com/kannan.chandra' onClick="trackOutboundLink(this, 'Outbound Links', 'facebook'); return false;">&#xe427;</a>
+          <a class='symbol' id="social-linkedin" href='http://www.linkedin.com/in/kannanchandra' onClick="trackOutboundLink(this, 'Outbound Links', 'linkedin'); return false;">&#xe452;</a>
+          <a class='symbol' id="social-twitter" href='http://twitter.com/kannanator' onClick="trackOutboundLink(this, 'Outbound Links', 'twitter'); return false;">&#xe486;</a>
+          <a class='symbol' id="social-email" href='mailto:hello@kannan-chandra.com'>&#xe424;</a>
+        </div>
+      </div>
+    </div>
+  </div>  
+  
+  <div class="content-wrapper">
+    
+    <div class="section" id="posts">
+      <div class="post">
+        <h3>Creating Xamarin.iOS bindings for a native library</h3>
+        
+        <!-- 09 Feb 2014 -->
+
+        <p>This past week I&#39;ve been checking out Appsee, a cool app user analytics tool. The app I&#39;m integrating this into is built using Xamarin.iOS, which Appsee doesn&#39;t support out of the box. This means creating a C# binding for the Appsee static library. I got it working after some Googling, and I thought I&#39;d put together a post documenting the process.</p>
+
+<p>First head over to the Appsee site and grab the latest UIKit SDK. </p>
+
+<p><img src="/images/xamarin-binding-appsee-1.png" alt=""></p>
+
+<p>Unzip it and you should see <code>Appsee.framework</code>. This is just a folder that contains the static library and required headers and files in a specific folder structure, making it easy to add to an Xcode project. Appsee.framework contains the static library, called <code>Appsee</code>, and the header file, called <code>Appsee.h</code>.</p>
+
+<p><img src="/images/xamarin-binding-appsee-2.png" alt=""></p>
+
+<p>First, we need to add the <code>.a</code> extension to the library to indicate that it is a static library.</p>
+
+<p><img src="/images/xamarin-binding-appsee-3.png" alt=""></p>
+
+<p>Next, we need to generate the API definitions. This is the part where we define the C# methods and properties that are going to be available to you. You can do this manually if you want, but a really quick way to do it is to use a tool from Xamarin called Objective Sharpie. http://docs.xamarin.com/guides/ios/advanced<em>topics/binding</em>objective-c/objective_sharpie/.</p>
+
+<p>Download it and run it. Select the target version as appropriate. On the next screen, add the header file we saw earlier.</p>
+
+<p><img src="/images/xamarin-binding-appsee-4.png" alt=""></p>
+
+<p>Enter a namespace that makes sense for you; I&#39;m using <code>Appsee</code> here.</p>
+
+<p><img src="/images/xamarin-binding-appsee-5.png" alt=""></p>
+
+<p>For the output file, I&#39;m using the name <code>ApiDefinitions.cs</code>. The contents of the file look like this :</p>
+
+<p>code</p>
+
+<div class="highlight"><pre><code class="c#"><span class="k">using</span> <span class="nn">System.Drawing</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
+
+<span class="k">namespace</span> <span class="nn">Appsee</span> <span class="p">{</span>
+
+<span class="na">   [BaseType (typeof (NSObject))]</span>
+    <span class="k">public</span> <span class="k">partial</span> <span class="k">interface</span> <span class="n">Appsee</span> <span class="p">{</span>
+
+<span class="na">       [Static, Export (&quot;start:&quot;)]</span>
+        <span class="k">void</span> <span class="nf">Start</span> <span class="p">(</span><span class="kt">string</span> <span class="n">apiKey</span><span class="p">);</span>
+
+<span class="na">       [Static, Export (&quot;stop&quot;)]</span>
+        <span class="k">void</span> <span class="nf">Stop</span> <span class="p">();</span>
+
+        <span class="p">...</span>
+
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>It&#39;s a normal C# class, and the bits in square brackets point to the Objective-C class/method/property you&#39;re wrapping with the following C#.</p>
+
+<p>Objective Sharpie does a pretty good job, but there&#39;s some cleanup left to do. There are a couple of properties with a <code>Verify</code> attribute above them. </p>
+
+<div class="highlight"><pre><code class="c#"><span class="na">[Static, Export (&quot;debugToNSLog&quot;), Verify (&quot;ObjC method massaged into setter property&quot;, &quot;/Users/kannan/Downloads/Appsee/Appsee.framework/Versions/A/Headers/Appsee.h&quot;, Line = 49)]</span>
+<span class="kt">bool</span> <span class="n">DebugToNSLog</span> <span class="p">{</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+</code></pre></div>
+
+<p><code>Verify</code> is an invalid attribute and will not compile. Objective Sharpie puts it there to draw your attention. In this case, it&#39;s because Obj-C setter methods were transformed into C# properties. This is alright, so go ahead and remove the <code>Verify</code>.</p>
+
+<div class="highlight"><pre><code class="c#"><span class="na">[Static, Export (&quot;debugToNSLog&quot;)]</span>
+<span class="kt">bool</span> <span class="n">DebugToNSLog</span> <span class="p">{</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+</code></pre></div>
+
+<p>There are also a few missing <code>using</code> statements. Add the following:</p>
+
+<div class="highlight"><pre><code class="c#"><span class="k">using</span> <span class="nn">MonoTouch.Foundation</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">MonoTouch.UIKit</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">MonoTouch.ObjCRuntime</span><span class="p">;</span>
+</code></pre></div>
+
+<p>If you have a look at Appsee&#39;s page about the SDK, it lists a few builtin frameworks that Appsee uses.</p>
+
+<p><img src="/images/xamarin-binding-appsee-6.png" alt=""></p>
+
+<p>We need to add <code>using</code> statements for these as well, so go ahead and do that :</p>
+
+<div class="highlight"><pre><code class="c#"><span class="k">using</span> <span class="nn">MonoTouch.AVFoundation</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">MonoTouch.CoreGraphics</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">MonoTouch.CoreMedia</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">MonoTouch.CoreVideo</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">MonoTouch.SystemConfiguration</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">MonoTouch.CoreAnimation</span><span class="p">;</span>
+</code></pre></div>
+
+<p>The final <code>ApiDefinitions.cs</code> file looks like this :</p>
+
+<div class="highlight"><pre><code class="c#"><span class="lineno"> 1</span> <span class="k">using</span> <span class="nn">System.Drawing</span><span class="p">;</span>
+<span class="lineno"> 2</span> <span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
+<span class="lineno"> 3</span> <span class="k">using</span> <span class="nn">MonoTouch.Foundation</span><span class="p">;</span>
+<span class="lineno"> 4</span> <span class="k">using</span> <span class="nn">MonoTouch.UIKit</span><span class="p">;</span>
+<span class="lineno"> 5</span> <span class="k">using</span> <span class="nn">MonoTouch.ObjCRuntime</span><span class="p">;</span>
+<span class="lineno"> 6</span> <span class="k">using</span> <span class="nn">MonoTouch.AVFoundation</span><span class="p">;</span>
+<span class="lineno"> 7</span> <span class="k">using</span> <span class="nn">MonoTouch.CoreGraphics</span><span class="p">;</span>
+<span class="lineno"> 8</span> <span class="k">using</span> <span class="nn">MonoTouch.CoreMedia</span><span class="p">;</span>
+<span class="lineno"> 9</span> <span class="k">using</span> <span class="nn">MonoTouch.CoreVideo</span><span class="p">;</span>
+<span class="lineno">10</span> <span class="k">using</span> <span class="nn">MonoTouch.SystemConfiguration</span><span class="p">;</span>
+<span class="lineno">11</span> <span class="k">using</span> <span class="nn">MonoTouch.CoreAnimation</span><span class="p">;</span>
+<span class="lineno">12</span> 
+<span class="lineno">13</span> <span class="k">namespace</span> <span class="nn">AppseeBinding</span> <span class="p">{</span>
+<span class="lineno">14</span> 
+<span class="lineno">15</span> <span class="na">    [BaseType (typeof (NSObject))]</span>
+<span class="lineno">16</span>  <span class="k">public</span> <span class="k">partial</span> <span class="k">interface</span> <span class="n">Appsee</span> <span class="p">{</span>
+<span class="lineno">17</span> 
+<span class="lineno">18</span> <span class="na">        [Static, Export (&quot;start:&quot;)]</span>
+<span class="lineno">19</span>      <span class="k">void</span> <span class="nf">Start</span> <span class="p">(</span><span class="kt">string</span> <span class="n">apiKey</span><span class="p">);</span>
+<span class="lineno">20</span> 
+<span class="lineno">21</span> <span class="na">        [Static, Export (&quot;stop&quot;)]</span>
+<span class="lineno">22</span>      <span class="k">void</span> <span class="nf">Stop</span> <span class="p">();</span>
+<span class="lineno">23</span> 
+<span class="lineno">24</span> <span class="na">        [Static, Export (&quot;stopAndUpload&quot;)]</span>
+<span class="lineno">25</span>      <span class="k">void</span> <span class="nf">StopAndUpload</span> <span class="p">();</span>
+<span class="lineno">26</span> 
+<span class="lineno">27</span> <span class="na">        [Static, Export (&quot;pause&quot;)]</span>
+<span class="lineno">28</span>      <span class="k">void</span> <span class="nf">Pause</span> <span class="p">();</span>
+<span class="lineno">29</span> 
+<span class="lineno">30</span> <span class="na">        [Static, Export (&quot;resume&quot;)]</span>
+<span class="lineno">31</span>      <span class="k">void</span> <span class="nf">Resume</span> <span class="p">();</span>
+<span class="lineno">32</span> 
+<span class="lineno">33</span> <span class="na">        [Static, Export (&quot;debugToNSLog&quot;)]</span>
+<span class="lineno">34</span>      <span class="kt">bool</span> <span class="n">DebugToNSLog</span> <span class="p">{</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+<span class="lineno">35</span> 
+<span class="lineno">36</span> <span class="na">        [Static, Export (&quot;addEvent:&quot;)]</span>
+<span class="lineno">37</span>      <span class="k">void</span> <span class="nf">AddEvent</span> <span class="p">(</span><span class="kt">string</span> <span class="n">eventName</span><span class="p">);</span>
+<span class="lineno">38</span> 
+<span class="lineno">39</span> <span class="na">        [Static, Export (&quot;addEvent:withProperties:&quot;)]</span>
+<span class="lineno">40</span>      <span class="k">void</span> <span class="nf">AddEvent</span> <span class="p">(</span><span class="kt">string</span> <span class="n">eventName</span><span class="p">,</span> <span class="n">NSDictionary</span> <span class="n">properties</span><span class="p">);</span>
+<span class="lineno">41</span> 
+<span class="lineno">42</span> <span class="na">        [Static, Export (&quot;startScreen:&quot;)]</span>
+<span class="lineno">43</span>      <span class="k">void</span> <span class="nf">StartScreen</span> <span class="p">(</span><span class="kt">string</span> <span class="n">screenName</span><span class="p">);</span>
+<span class="lineno">44</span> 
+<span class="lineno">45</span> <span class="na">        [Static, Export (&quot;overlayImage:inRect:&quot;)]</span>
+<span class="lineno">46</span>      <span class="k">void</span> <span class="nf">OverlayImage</span> <span class="p">(</span><span class="n">UIImage</span> <span class="n">image</span><span class="p">,</span> <span class="n">RectangleF</span> <span class="n">rect</span><span class="p">);</span>
+<span class="lineno">47</span> 
+<span class="lineno">48</span> <span class="na">        [Static, Export (&quot;userID&quot;)]</span>
+<span class="lineno">49</span>      <span class="kt">string</span> <span class="n">UserID</span> <span class="p">{</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+<span class="lineno">50</span> 
+<span class="lineno">51</span> <span class="na">        [Static, Export (&quot;setLocation:longitude:horizontalAccuracy:verticalAccuracy:&quot;)]</span>
+<span class="lineno">52</span>      <span class="k">void</span> <span class="nf">SetLocation</span> <span class="p">(</span><span class="kt">double</span> <span class="n">latitude</span><span class="p">,</span> <span class="kt">double</span> <span class="n">longitude</span><span class="p">,</span> <span class="kt">float</span> <span class="n">horizontalAccuracy</span><span class="p">,</span> <span class="kt">float</span> <span class="n">verticalAccuracy</span><span class="p">);</span>
+<span class="lineno">53</span> 
+<span class="lineno">54</span> <span class="na">        [Static, Export (&quot;locationDescription&quot;)]</span>
+<span class="lineno">55</span>      <span class="kt">string</span> <span class="n">LocationDescription</span> <span class="p">{</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+<span class="lineno">56</span> 
+<span class="lineno">57</span> <span class="na">        [Static, Export (&quot;markViewAsSensitive:&quot;)]</span>
+<span class="lineno">58</span>      <span class="k">void</span> <span class="nf">MarkViewAsSensitive</span> <span class="p">(</span><span class="n">UIView</span> <span class="n">view</span><span class="p">);</span>
+<span class="lineno">59</span>  <span class="p">}</span>
+<span class="lineno">60</span> <span class="p">}</span>
+</code></pre></div>
+
+<p>We need to prepare another file that defines how linking should happen. I&#39;m going to call this file <code>linkwith.cs</code>.</p>
+
+<div class="highlight"><pre><code class="c#"><span class="k">using</span> <span class="nn">MonoTouch.ObjCRuntime</span><span class="p">;</span>
+
+<span class="na">[assembly: LinkWith (&quot;Appsee.a&quot;, LinkTarget.Simulator | LinkTarget.ArmV7 | LinkTarget.ArmV7s, ForceLoad = true,</span>
+<span class="na">   Frameworks = &quot;AVFoundation CoreGraphics CoreMedia CoreVideo QuartzCore SystemConfiguration&quot;)]</span>
+</code></pre></div>
+
+<p>The bit that says <code>Frameworks = &quot;...&quot;</code> is important. It contains the list of native libraries we need to link against. Without it, the creation of the binding will go alright, but there will be compilation errors when the resulting DLL is added to your project.</p>
+
+<p>Let&#39;s get the three files, <code>Appsee.a</code>, <code>ApiDefinitions.cs</code>, and <code>linkwith.cs</code> into one folder. I&#39;m calling this Appsee.</p>
+
+<p><img src="/images/xamarin-binding-appsee-7.png" alt=""></p>
+
+<p>Open up your terminal and navigate over to the folder.</p>
+
+<div class="highlight"><pre><code class="console"><span class="go">~ $ cd /Users/kannan/Documents/Appsee</span>
+</code></pre></div>
+
+<p>We use a tool called <code>btouch</code>, provided by Xamarin, to create the binding.</p>
+
+<div class="highlight"><pre><code class="console"><span class="go">~ $ /Developer/MonoTouch/usr/bin/btouch -unsafe --outdir=tmp -out:Appsee.dll ApiDefinition.cs -x=Appsee.linkwith.cs --link-with=Appsee.a,Appsee.a</span>
+</code></pre></div>
+
+<p>The location of the btouch executable might vary depending on your installation. The <code>out</code> argument defines the name of the output DLL as <code>Appsee.dll</code>.</p>
+
+<p>Running the above in your terminal will create the DLL file.</p>
+
+<p><img src="/images/xamarin-binding-appsee-8.png" alt=""></p>
+
+<p>In your mobile project, right-click <code>References</code> and <code>Edit References...</code>. Navigate to the location of your DLL and add it to your project.</p>
+
+<p><img src="/images/xamarin-binding-appsee-9.png" alt=""></p>
+
+<p>Add a <code>using</code> statement for the namespace you defined earlier, and you&#39;re good to go!</p>
+
+
+      </div>
+    </div>
+  </div>
+
+    </body>
+</html>
