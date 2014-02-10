@@ -29,8 +29,6 @@ Enter a namespace that makes sense for you; I'm using `Appsee` here.
 
 For the output file, I'm using the name `ApiDefinitions.cs`. The contents of the file look like this :
 
-code
-
 {% highlight c# %}
 
 using System.Drawing;
