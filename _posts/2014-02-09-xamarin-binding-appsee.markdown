@@ -27,7 +27,7 @@ Enter a namespace that makes sense for you; I'm using `Appsee` here.
 
 ![](/images/xamarin-binding-appsee-5.png)
 
-For the output file, I'm using the name `ApiDefinitions.cs`. The contents of the file look like this :
+For the output file, I'm using the name `ApiDefinitions.cs`. You can use any name *except* `Appsee`. If the file and the interface have the same name, you're going to encounter errors down the line. The contents of the file look like this :
 
 {% highlight c# %}
 
@@ -108,7 +108,7 @@ using MonoTouch.CoreVideo;
 using MonoTouch.SystemConfiguration;
 using MonoTouch.CoreAnimation;
 
-namespace AppseeBinding {
+namespace Appsee {
 
 	[BaseType (typeof (NSObject))]
 	public partial interface Appsee {
@@ -183,7 +183,7 @@ Open up your terminal and navigate over to the folder.
 We use a tool called `btouch`, provided by Xamarin, to create the binding.
 
 {% highlight console %}
-~ $ /Developer/MonoTouch/usr/bin/btouch -unsafe --outdir=tmp -out:Appsee.dll ApiDefinition.cs -x=Appsee.linkwith.cs --link-with=Appsee.a,Appsee.a
+~ $ /Developer/MonoTouch/usr/bin/btouch -unsafe --outdir=tmp -out:Appsee.dll ApiDefinitions.cs -x=linkwith.cs --link-with=Appsee.a,Appsee.a
 {% endhighlight %}
 
 
