@@ -87,7 +87,7 @@
 
 <p><img src="/images/xamarin-binding-appsee-5.png" alt=""></p>
 
-<p>For the output file, I&#39;m using the name <code>ApiDefinitions.cs</code>. The contents of the file look like this :</p>
+<p>For the output file, I&#39;m using the name <code>ApiDefinitions.cs</code>. You can use any name <em>except</em> <code>Appsee</code>. If the file and the interface have the same name, you&#39;re going to encounter errors down the line. The contents of the file look like this :</p>
 
 <div class="highlight"><pre><code class="c#"><span class="k">using</span> <span class="nn">System.Drawing</span><span class="p">;</span>
 <span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
@@ -158,7 +158,7 @@
 <span class="lineno">10</span> <span class="k">using</span> <span class="nn">MonoTouch.SystemConfiguration</span><span class="p">;</span>
 <span class="lineno">11</span> <span class="k">using</span> <span class="nn">MonoTouch.CoreAnimation</span><span class="p">;</span>
 <span class="lineno">12</span> 
-<span class="lineno">13</span> <span class="k">namespace</span> <span class="nn">AppseeBinding</span> <span class="p">{</span>
+<span class="lineno">13</span> <span class="k">namespace</span> <span class="nn">Appsee</span> <span class="p">{</span>
 <span class="lineno">14</span> 
 <span class="lineno">15</span> <span class="na">    [BaseType (typeof (NSObject))]</span>
 <span class="lineno">16</span>  <span class="k">public</span> <span class="k">partial</span> <span class="k">interface</span> <span class="n">Appsee</span> <span class="p">{</span>
@@ -229,7 +229,7 @@
 
 <p>We use a tool called <code>btouch</code>, provided by Xamarin, to create the binding.</p>
 
-<div class="highlight"><pre><code class="console"><span class="go">~ $ /Developer/MonoTouch/usr/bin/btouch -unsafe --outdir=tmp -out:Appsee.dll ApiDefinition.cs -x=Appsee.linkwith.cs --link-with=Appsee.a,Appsee.a</span>
+<div class="highlight"><pre><code class="console"><span class="go">~ $ /Developer/MonoTouch/usr/bin/btouch -unsafe --outdir=tmp -out:Appsee.dll ApiDefinitions.cs -x=linkwith.cs --link-with=Appsee.a,Appsee.a</span>
 </code></pre></div>
 
 <p>The location of the btouch executable might vary depending on your installation. The <code>out</code> argument defines the name of the output DLL as <code>Appsee.dll</code>.</p>
