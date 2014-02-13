@@ -177,13 +177,13 @@ Let's get the three files, `Appsee.a`, `ApiDefinitions.cs`, and `linkwith.cs` in
 Open up your terminal and navigate over to the folder.
 
 {% highlight console %}
-~ $ cd /Users/kannan/Documents/Appsee
+$ cd /Users/kannan/Documents/Appsee
 {% endhighlight %}
 
 We use a tool called `btouch`, provided by Xamarin, to create the binding.
 
 {% highlight console %}
-~ $ /Developer/MonoTouch/usr/bin/btouch -unsafe --outdir=tmp -out:Appsee.dll ApiDefinitions.cs -x=linkwith.cs --link-with=Appsee.a,Appsee.a
+$ /Developer/MonoTouch/usr/bin/btouch -unsafe --outdir=tmp -out:Appsee.dll ApiDefinitions.cs -x=linkwith.cs --link-with=Appsee.a,Appsee.a
 {% endhighlight %}
 
 

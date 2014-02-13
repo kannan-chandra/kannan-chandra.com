@@ -224,12 +224,12 @@
 
 <p>Open up your terminal and navigate over to the folder.</p>
 
-<div class="highlight"><pre><code class="console"><span class="go">~ $ cd /Users/kannan/Documents/Appsee</span>
+<div class="highlight"><pre><code class="console"><span class="gp">$</span> <span class="nb">cd</span> /Users/kannan/Documents/Appsee
 </code></pre></div>
 
 <p>We use a tool called <code>btouch</code>, provided by Xamarin, to create the binding.</p>
 
-<div class="highlight"><pre><code class="console"><span class="go">~ $ /Developer/MonoTouch/usr/bin/btouch -unsafe --outdir=tmp -out:Appsee.dll ApiDefinitions.cs -x=linkwith.cs --link-with=Appsee.a,Appsee.a</span>
+<div class="highlight"><pre><code class="console"><span class="gp">$</span> /Developer/MonoTouch/usr/bin/btouch -unsafe --outdir<span class="o">=</span>tmp -out:Appsee.dll ApiDefinitions.cs -x<span class="o">=</span>linkwith.cs --link-with<span class="o">=</span>Appsee.a,Appsee.a
 </code></pre></div>
 
 <p>The location of the btouch executable might vary depending on your installation. The <code>out</code> argument defines the name of the output DLL as <code>Appsee.dll</code>.</p>
