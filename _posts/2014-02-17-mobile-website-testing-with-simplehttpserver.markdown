@@ -7,13 +7,20 @@ When developing websites, you usually want to test it out on a mobile device. Re
 
 I've seen a bunch of ways to do this, including using [online iPad/iPhone simulators](http://ipadpeek.com/), or installing the iOS simulator or the Android emulator. While these are pretty good ways to do it, sometimes all you want to do is to see your website on the smartphone you already have on you. There's a simple trick I use to do this, and you might not even need to install anything.
 
-The only thing you need installed is Python. If you have a Mac or Linux system, this is probably preinstalled. However, Windows doesn't ship with Python out of the box. You can check quickly by opening up your console and typing this:
+The only thing you need installed is Python. If you have a Mac or Linux system, this is probably preinstalled. However, Windows doesn't ship with Python out of the box. You can check quickly by opening up your terminal and typing this:
 
 {% highlight console %}
 $ python -V
 {% endhighlight %}
 
-If you have it installed, you'll see the version number. If you don't, you can easily [install it](http://www.python.org/getit/).
+If you have it installed, you'll see the version number. 
+
+{% highlight console %}
+$ python -V
+Python 2.7.5
+{% endhighlight %}
+
+If you don't, you can easily [install it](http://www.python.org/getit/).
 
 Once python is installed, navigate over to the folder which contains your website.
 

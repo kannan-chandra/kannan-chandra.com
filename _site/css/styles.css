@@ -143,6 +143,26 @@
     line-height: 1.5
   }
 
+  .post img {
+    max-height: 620px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .post h3 {
+    margin-top: 10px;
+  }
+
+  .post .post-date {
+    font-size: 16px;
+    color: #555;
+    margin-top: 32px;
+  }
+
+  .post + .post {
+    border-top: solid #ddd 1px;
+  }
 
 
   .banner {
@@ -155,7 +175,7 @@
     position: relative;
   }
 
-    .bio {
+  .bio {
     padding: 10px;
     background: #282828;      //IE?
     background-color: #282828;
