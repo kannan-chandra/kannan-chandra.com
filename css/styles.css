@@ -137,6 +137,8 @@
   #posts {
     padding-top: 1px;
     clear:both;
+    margin-left: 5%;
+    margin-right: 5%;
   }
 
   .post p {
@@ -306,6 +308,19 @@
 
 
   @media screen and (max-width: 900px) {
+
+    .bio {
+      width: 330px;
+    }
+
+    .banner {
+      min-width: inherit;
+      background: url("/images/background.jpg") #111 no-repeat;
+      background-size: auto 650px;
+    }
+  }
+
+  @media screen and (max-width: 750px) {
     .bio {
       padding: 10px;
       position: absolute;
@@ -319,6 +334,18 @@
 
     .banner {
       min-width: inherit;
+      background: url("/images/background.jpg") #111 no-repeat;
+      background-size: auto 650px;
+    }
+
+    #posts {
+      margin-left: 2%;
+      margin-right: 2%;
+    }
+
+    .section h2:after {
+      width: 104%;
+      left: -2%;
     }
   }
 
