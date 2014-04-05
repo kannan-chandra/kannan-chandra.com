@@ -1,6 +1,6 @@
 ---
 layout: post
-title: WIDS 2014 : Part 1
+title: WIDS 2014 - Part 1
 ---
 
 I can mark "attending a conference" off my todo list now. There are an increasing number of monthly dev meetups in Hong Kong, but WIDS (the World Internet Developer Summit) is the only conference. Sure, the name's a bit bombastic and it sounds like a Justice League of developers coming together to save the Internet, but it's a proper conference! Speakers from big name companies! Multiple tracks! A name tag!
@@ -20,4 +20,6 @@ The first talk was from Microsoft about Azure services. Not that much of interes
 IMAGE
 Not pictured: Adblock.
 
-The next talk was just a complete switch to full on tech mode.
+The next talk was just a complete switch to full on tech mode. Asya Kamsky spoke about replication in MongoDB. I had a vague understanding of replication before, but her talk went into some practical implementation details. A replica set is a collection of servers (usually three) that store separate copies of the same data. One is a primary, and is the one used for both reads and writes in general. The others are secondaries that try to keep up with the state held at the primary. In the event of a failure at the primary, the remaining nodes hold an election and promote one of them to be the new primary. One thing I found cool is that when the old primary does come back, there are mechanisms to allow it to join the cluster and turn into a secondary. The same mechanism allows for downtime-less maintenance. Something I had not thought about before is that replica sets can be useful for running other background tasks such as backups and analytics on one of the secondaries. Overall a really good talk. The one question I had was that these concepts do seem fairly general. What makes MongoDB more suited to this than a relational DB?
+
+Maxime Bélanger's talk was one of my favourite from the conference. 
