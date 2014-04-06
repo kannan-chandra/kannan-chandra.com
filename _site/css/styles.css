@@ -237,6 +237,18 @@
     margin-top: 50px;
   }
 
+  .project-page img {
+    width:100%;
+  }
+
+  .project-page p {
+    line-height: 1.5;
+  }
+
+  .feature {
+    margin-top: 350px;
+  }
+
 
 
   /* social icons */

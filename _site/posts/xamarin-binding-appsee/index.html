@@ -9,6 +9,8 @@
         <!-- syntax highlighting CSS -->
         <link rel="stylesheet" href="/css/syntax.css">
 
+        <link rel="stylesheet" href="/css/grid.css">
+
         <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700' rel='stylesheet' type='text/css'>
         <link rel='stylesheet' href='/css/styles.css' type='text/css'/>
 
@@ -41,28 +43,28 @@
     <body>
 
         <div class="navbar-wrapper banner">
-    <div class="navbar">
-      <div class="content-wrapper">
-        <a href="/"><h1>Kannan C.</h1></a>
+  <div class="navbar">
+    <div class="content-wrapper">
+      <a href="/"><h1>Kannan C.</h1></a>
 
-        <div class="social-wrapper">
-          <a class='symbol' id="social-fb" href='http://www.facebook.com/kannan.chandra' onClick="trackOutboundLink(this, 'Outbound Links', 'facebook'); return false;">&#xe427;</a>
-          <a class='symbol' id="social-linkedin" href='http://www.linkedin.com/in/kannanchandra' onClick="trackOutboundLink(this, 'Outbound Links', 'linkedin'); return false;">&#xe452;</a>
-          <a class='symbol' id="social-twitter" href='http://twitter.com/kannanator' onClick="trackOutboundLink(this, 'Outbound Links', 'twitter'); return false;">&#xe486;</a>
-          <a class='symbol' id="social-email" href='mailto:hello@kannan-chandra.com'>&#xe424;</a>
-        </div>
+      <div class="social-wrapper">
+        <a class='symbol' id="social-fb" href='http://www.facebook.com/kannan.chandra' onClick="trackOutboundLink(this, 'Outbound Links', 'facebook'); return false;">&#xe427;</a>
+        <a class='symbol' id="social-linkedin" href='http://www.linkedin.com/in/kannanchandra' onClick="trackOutboundLink(this, 'Outbound Links', 'linkedin'); return false;">&#xe452;</a>
+        <a class='symbol' id="social-twitter" href='http://twitter.com/kannanator' onClick="trackOutboundLink(this, 'Outbound Links', 'twitter'); return false;">&#xe486;</a>
+        <a class='symbol' id="social-email" href='mailto:hello@kannan-chandra.com'>&#xe424;</a>
       </div>
     </div>
-  </div>  
-  
-  <div class="content-wrapper">
-    
-    <div class="section" id="posts">
-      <div class="post">
-        <div class="post-date"> 09 Feb 2014 </div>
-        <h3>Creating Xamarin.iOS bindings for a native library</h3>
+  </div>
+</div>  
 
-        <p>This past week I&#39;ve been checking out <a href="http://www.appsee.com/">Appsee</a>, a cool app user analytics tool. The app I&#39;m integrating this into is built using <a href="http://xamarin.com/ios">Xamarin.iOS</a>, which Appsee doesn&#39;t support out of the box. This means creating a C# binding for the Appsee static library. I got it working after some Googling, and I thought I&#39;d put together a post documenting the process.</p>
+<div class="content-wrapper">
+  
+  <div class="section" id="posts">
+    <div class="post">
+      <div class="post-date"> 09 Feb 2014 </div>
+      <h3>Creating Xamarin.iOS bindings for a native library</h3>
+
+      <p>This past week I&#39;ve been checking out <a href="http://www.appsee.com/">Appsee</a>, a cool app user analytics tool. The app I&#39;m integrating this into is built using <a href="http://xamarin.com/ios">Xamarin.iOS</a>, which Appsee doesn&#39;t support out of the box. This means creating a C# binding for the Appsee static library. I got it working after some Googling, and I thought I&#39;d put together a post documenting the process.</p>
 
 <p>First head over to the Appsee site and grab the latest UIKit SDK. </p>
 
@@ -244,9 +246,9 @@
 <p>Add a <code>using</code> statement for the namespace you defined earlier, and you&#39;re good to go!</p>
 
 
-      </div>
     </div>
   </div>
+</div>
 
     <div id="footer"></div>
     </body>
