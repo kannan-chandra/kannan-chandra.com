@@ -15,7 +15,7 @@ IMAGE
 
 I've noticed that Hong Kong events at Cyberport and Science park tend to be preceded by a bit of a report card on how Hong Kong is doing with the startup thing. Speakers from the various organizers came up to remind us about the awesome internet speed here, and the increasing number of startups getting funding from the States.
 
-The first talk was from Microsoft about Azure services. Not that much of interest happened, really. There were brief attempts to link what was being presented to general cloud concepts, but it was pretty much just an hour-long ad. There was a weird five minutes where I think they were just showing us animated graphs on Excel. They completely flew past the only interesting part of the demo, which was when they showed a natural language query interface that allowed you to draw arbitrary analytics by just phrasing it in plain language. It was like Youtube where you have to wait for the sponsored ad to end before getting to the good stuff.
+The first talk was from Microsoft about Azure services. Not that much of interest happened, really. There were brief attempts to link what was being presented to general cloud concepts, but it was pretty much just an hour-long ad. There was a weird five minutes where I think they were just showing us animated graphs on Excel. They completely flew past the only interesting part of the demo, which was when they showed a natural language query interface that allowed you to draw arbitrary analytics by just phrasing it in plain language. The whole thing was like Youtube where you have to wait for the sponsored ad to end before getting to the good stuff.
 
 IMAGE
 Not pictured: Adblock.
@@ -50,8 +50,14 @@ IMAGE
 
 The first session was by Markku Lepisto from AWS. Broadly, it was a slightly more interesting version of the Azure talk that started off the first day. Atleast there was an attempt to link the Amazon services being shown off to broader cloud concepts. The demo at the end of the session was pretty neat. It was a live demo of the self healing ability of their services. The demo website was being served from both Tokyo and Singapore. When the primary server in Singapore was killed, the automatic health check failed and redirected all traffic to Tokyo within a few seconds of downtime. At the same time, the Singapore server automatically rebooted and took over the traffic once it passed the health checks. Pretty neat.
 
+IMAGE
+
 Next was TODOJeremy from Evernote. The talk covered how Evernote used localization to grow internationally (they have more users outside the States than inside). The key takeaway for me from this one was using your API as a localization strategy. A growing startup may be able to get the UI translated to a bunch of languages. But localization goes beyond that, as the app will encounter new use cases that really only arise in that country. Having an API and promoting your platform devs allows them to fill those gaps and bring your platform to a completely new set of users. In Japan, people even wrote loads of guidebooks about using Evernote when they localized there.
 
+IMAGE
 
+There were also a bunch of neat workshops I attended. Matt TODO conducted what was hands down the best workshop of the ones I attended. It was an overview of CSRF and XSS exploits. The session was structured around a vulnerable PHP app and the different ways it can be coerced into revealing user information. XSS exploits in particular seem like a lot of fun to play with. I'm not sure if the demo app is up somewhere; I'll post a link here if I find it. http://escape.alf.nu.
 
+IMAGE
 
+James Tang's workshop on prototyping in Xcode had a lot of neat details I didn't know about before. I was pretty surprised how far you could get with just Interface Builder and 3rd party libraries. I tend build all interactive UI using code, since it seems more flexible and it keeps all settings in one place. To a large extent, I probably still will, but I can probably get much further before I leave IB and switch to code. There's a library that allows you to use GIFs in IB, which can come in really handy for prototyping. There was also a bit of drama during this workshop, which I'll come back to in a bit TODO.
