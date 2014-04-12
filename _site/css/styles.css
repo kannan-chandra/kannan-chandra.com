@@ -152,6 +152,10 @@
     margin-right: auto;
   }
 
+  .post .image-caption {
+    text-align: center;
+  }
+
   .post h3 {
     margin-top: 10px;
   }
