@@ -1,6 +1,6 @@
 ---
 layout: post
-title: WIDS 2014 - Part 1
+title: WIDS 2014 - Part 4
 ---
 
 I can mark "attending a conference" off my todo list now. There are an increasing number of monthly dev meetups in Hong Kong, but WIDS (the World Internet Developer Summit) is the only conference. Sure, the name's a bit bombastic and it sounds like a Justice League of developers coming together to save the Internet, but it's a proper conference! Speakers from big name companies! Multiple tracks! A name tag!
