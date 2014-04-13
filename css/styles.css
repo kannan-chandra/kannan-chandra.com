@@ -150,6 +150,7 @@
     display: block;
     margin-left: auto;
     margin-right: auto;
+    margin-top: 1.5em;
   }
 
   .post .image-caption {
