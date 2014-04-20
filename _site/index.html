@@ -94,6 +94,14 @@
 
       
       	<div class="post">
+          <div class="post-date">20 Apr 2014 </div>
+      		<a href="/posts/wids2014-part2"><h3>WIDS 2014 - Part 2</h3></a>
+      		<p>Maxime Bélanger&#39;s talk was one of my favourite from the conference. The talk was primarily about how Dropbox hacked the OS X Finder to display the classic syncing overlays on top of file icons. The level of modification is pretty insane, and I was quite surprised the extent to which Dropbox messes with the Finder. The core idea is to write low level Darwin code that gets a foreign process (the Finder process) to run code from a custom memory location you have allocated. This allows you to run a bit of bootstrap code which you can use to link against an actual dynamic library. At this point, you can finally start working with the Objective-C runtime, and swap out the implementation of Finder methods with your own method. Dropbox uses this trick to add the syncing state to the file data, as well as swap the built-in icon rendering method with their own.</p>
+
+          <p><a href="/posts/wids2014-part2">Read full post...</a></p>
+      	</div>
+      
+      	<div class="post">
           <div class="post-date">13 Apr 2014 </div>
       		<a href="/posts/wids2014-part1"><h3>WIDS 2014 - Part 1</h3></a>
       		<p>I can mark &quot;attending a conference&quot; off my todo list now. There are an increasing number of monthly dev meetups in Hong Kong, but WIDS (the World Internet Developer Summit) is the only conference. Sure, the name&#39;s a bit bombastic and it sounds like a Justice League of developers coming together to save the Internet, but it&#39;s a proper conference! Speakers from big name companies! Multiple tracks! A name tag!</p>

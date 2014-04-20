@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>WIDS 2014 - Part 2</title>
+        <meta name="viewport" content="width=device-width">
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/css/syntax.css">
+
+        <link rel="stylesheet" href="/css/grid.css">
+
+        <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700' rel='stylesheet' type='text/css'>
+        <link rel='stylesheet' href='/css/styles.css' type='text/css'/>
+
+        <script type="text/javascript">
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-47128798-1']);
+            _gaq.push(['_trackPageview']);
+
+            (function() {
+              var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+              ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+              var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            })();
+
+        </script>
+
+        <script type="text/javascript">
+            function trackOutboundLink(link, category, action) { 
+             
+              try { 
+                _gaq.push(['_trackEvent', category , action]); 
+              } catch(err){}
+               
+              setTimeout(function() {
+                document.location.href = link.href;
+              }, 100);
+            }
+        </script>
+    </head>
+    <body>
+
+        <div class="navbar-wrapper banner">
+  <div class="navbar">
+    <div class="content-wrapper">
+      <a href="/"><h1>Kannan C.</h1></a>
+
+      <div class="social-wrapper">
+        <a class='symbol' id="social-fb" href='http://www.facebook.com/kannan.chandra' onClick="trackOutboundLink(this, 'Outbound Links', 'facebook'); return false;">&#xe427;</a>
+        <a class='symbol' id="social-linkedin" href='http://www.linkedin.com/in/kannanchandra' onClick="trackOutboundLink(this, 'Outbound Links', 'linkedin'); return false;">&#xe452;</a>
+        <a class='symbol' id="social-twitter" href='http://twitter.com/kannanator' onClick="trackOutboundLink(this, 'Outbound Links', 'twitter'); return false;">&#xe486;</a>
+        <a class='symbol' id="social-email" href='mailto:hello@kannan-chandra.com'>&#xe424;</a>
+      </div>
+    </div>
+  </div>
+</div>  
+
+<div class="content-wrapper">
+  
+  <div class="section" id="posts">
+    <div class="post">
+      <div class="post-date"> 20 Apr 2014 </div>
+      <h3>WIDS 2014 - Part 2</h3>
+
+      <p>Maxime Bélanger&#39;s talk was one of my favourite from the conference. The talk was primarily about how Dropbox hacked the OS X Finder to display the classic syncing overlays on top of file icons. The level of modification is pretty insane, and I was quite surprised the extent to which Dropbox messes with the Finder. The core idea is to write low level Darwin code that gets a foreign process (the Finder process) to run code from a custom memory location you have allocated. This allows you to run a bit of bootstrap code which you can use to link against an actual dynamic library. At this point, you can finally start working with the Objective-C runtime, and swap out the implementation of Finder methods with your own method. Dropbox uses this trick to add the syncing state to the file data, as well as swap the built-in icon rendering method with their own.</p>
+
+<p><img src="/images/wids2014-5.jpg" alt="All your icons are belong to us"/></p>
+
+<div class="image-caption">All your icons are belong to us</div>
+
+<!-- <table class="image">
+<caption align="bottom">All your icons are belong to us</caption>
+<tr><td><img src="/images/wids2014-5.jpg" alt="All your icons are belong to us"/></td></tr>
+</table> -->
+
+<p>The whole idea is both exciting and really worrying. This is the level of control you are handing over to any application which asks for your administrator password when being installed. Not only does the app have full access to the entire file system (which you&#39;d expect), it can also get other processes to change their built-in behaviour. The second half of the talk was a summary of some general lessons from this exercise. First, doing something this crazy gives you an inherent competitive edge. Not everybody is this crazy, and your competitors probably won&#39;t go this far. Second, anything is possible. Literally anything. If you want you can make a computer do anything you want it to do, whether or not the framework, operating system, programming language allow you to do it. You just need to go a level lower and bend the machine to your will.</p>
+
+<blockquote>“Everything is just C code.”</blockquote>
+
+<p>Working at such a low level comes with some baggage. You need to minimize your dependence on reverse engineered libraries as much as possible. This will be the first thing to break when the underlying platform changes, because none of the functionality you are depending one was meant to be outward facing. Counter intuitively (to me, anyway), it can be better to trust low level code more than high level. Kernel level changes are much rarer than high level changes. As an example, the Finder implementation has been revamped 3-4 times during Dropbox&#39;s existence, but the underlying Darwin implementation only changed once.</p>
+
+<p>The talk after lunch was by Josh Aberant, postmaster at Twitter. Yes, apparently that&#39;s a thing. This session was probably the least technical talk from both days. That&#39;s not a bad thing, though. It turned out to be a really interesting one. The main thrust of the talk was &quot;growth hacking&quot;.</p>
+
+<p><img src="/images/wids2014-6.jpg" alt=""Growth Hacking", the artist formerly known as "Marketing""/></p>
+
+<div class="image-caption">"Growth Hacking", the artist formerly known as "Marketing"</div>
+
+<!-- <table class="image">
+<caption align="bottom">"Growth Hacking", the artist formerly known as "Marketing"</caption>
+<tr><td><img src="/images/wids2014-6.jpg" alt=""Growth Hacking", the artist formerly known as "Marketing""/></td></tr>
+</table> -->
+
+<p>The three primary channels he covered were email, push, and SMS. I&#39;d never thought of push notifications as a marketing channel, but the key takeaway from this session was keeping the customer&#39;s entire lifecycle in mind, from the first time they hear about the product to when they stop using it. Every stage of that journey is an opportunity to lead the customers to different objectives, and each channel excels at different stages of that journey. The stages, broadly, are acquisition, activation, engagement, virality and resurrection. The non-obvious ones to me were activation and resurrection. Activation is turning a customer you just acquired (registration, download of a free trial, etc) into an active user. An example Josh cited was that Facebook found that once you hit a certain number of friends, you wouldn&#39;t churn. So Facebook&#39;s objective at that point is to get you to add connections and hit that point of no return, where you are guaranteed to be an active user. Identifying the causes and effects within your customers&#39; lifecycle can help you figure out the transition from one stage to another. The other stage, resurrection, is bringing back a user who has gone inactive. Again, being able to anticipate that situation gives you a chance to reactivate the user before they even leave.</p>
+
+<p>For me, the big takeaway is to think of marketing in terms of the customer&#39;s lifecycle. It&#39;s natural to strategize in terms of where the company is in its own lifecycle (&quot;Right now, what we need is to generate awareness among early adopters&quot;, &quot;We need to broaden the appeal of the product to allow the non-tech crowd to start using it&quot;, etc). But you get from hundred users to a thousand one at a time. Nine hundred separate people went from being ignorant of your product to becoming an active user (or a paying customer). None of them care about where the company as a whole is. Keeping each individual customer&#39;s journey in mind is a prerequisite to growth.</p>
+
+<p>Up next was the panel, about Big Data and the Cloud. Big Data, if I understand correctly, is when the default font size of PHPMyAdmin is set too high. This can cause many problems including not being able to see all of it at once. This can Cloud your understanding of what it all means. In 2013, Social Media would have solved that, but teenagers don&#39;t use that anymore. It&#39;s a pity they didn&#39;t talk about Bitcoin as well; I was this close to beating my Buzzword Bingo highscore.</p>
+
+<p><img src="/images/wids2014-7.jpg" alt=""Hello everybody. My name is Bob and I've been Cloud free for twenty days.""/></p>
+
+<div class="image-caption">"Hello everybody. My name is Bob and I've been Cloud free for twenty days."</div>
+
+<!-- <table class="image">
+<caption align="bottom">"Hello everybody. My name is Bob and I've been Cloud free for twenty days."</caption>
+<tr><td><img src="/images/wids2014-7.jpg" alt=""Hello everybody. My name is Bob and I've been Cloud free for twenty days.""/></td></tr>
+</table> -->
+
+
+    </div>
+  </div>
+</div>
+
+    <div id="footer"></div>
+    </body>
+</html>
