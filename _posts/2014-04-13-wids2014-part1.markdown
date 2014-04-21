@@ -22,4 +22,4 @@ The next talk was just a complete switch to full on tech mode. Asya Kamsky spoke
 
 {% include image.html 	url="/images/wids2014-4.jpg" description="" %}
 <br/>
-*Stay tuned for the next epic chapter of the WIDS Chronicles trilogy.*
+*Stay tuned for the [next epic chapter](/posts/wids2014-part2) of the WIDS Chronicles trilogy.*

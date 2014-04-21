@@ -24,3 +24,5 @@ For me, the big takeaway is to think of marketing in terms of the customer's lif
 Up next was the panel, about Big Data and the Cloud. Big Data, if I understand correctly, is when the default font size of PHPMyAdmin is set too high. This can cause many problems including not being able to see all of it at once. This can Cloud your understanding of what it all means. In 2013, Social Media would have solved that, but teenagers don't use that anymore. It's a pity they didn't talk about Bitcoin as well; I was this close to beating my Buzzword Bingo highscore.
 
 {% include image.html 	url="/images/wids2014-7.jpg" description="\"Hello everybody. My name is Bob and I've been Cloud free for twenty days.\"" %}
+
+*This is the second of a series of blog posts on the World Internet Developer Summit 2014 conference. Here's [Part 1](/posts/wids2014-part1). Stay tuned for the next epic chapter of the WIDS Chronicles trilogy.*
