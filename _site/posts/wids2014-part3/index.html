@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>WIDS 2014 - Part 3</title>
+        <meta name="viewport" content="width=device-width">
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/css/syntax.css">
+
+        <link rel="stylesheet" href="/css/grid.css">
+
+        <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+        <link rel='stylesheet' href='/css/styles.css' type='text/css'/>
+
+        <script type="text/javascript">
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-47128798-1']);
+            _gaq.push(['_trackPageview']);
+
+            (function() {
+              var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+              ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+              var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            })();
+
+        </script>
+
+        <script type="text/javascript">
+            function trackOutboundLink(link, category, action) { 
+             
+              try { 
+                _gaq.push(['_trackEvent', category , action]); 
+              } catch(err){}
+               
+              setTimeout(function() {
+                document.location.href = link.href;
+              }, 100);
+            }
+        </script>
+    </head>
+    <body>
+
+        <div class="navbar-wrapper banner">
+  <div class="navbar">
+    <div class="content-wrapper">
+      <a href="/"><h1>Kannan C.</h1></a>
+
+      <div class="social-wrapper">
+        <a class='symbol' id="social-fb" href='http://www.facebook.com/kannan.chandra' onClick="trackOutboundLink(this, 'Outbound Links', 'facebook'); return false;">&#xe427;</a>
+        <a class='symbol' id="social-linkedin" href='http://www.linkedin.com/in/kannanchandra' onClick="trackOutboundLink(this, 'Outbound Links', 'linkedin'); return false;">&#xe452;</a>
+        <a class='symbol' id="social-twitter" href='http://twitter.com/kannanator' onClick="trackOutboundLink(this, 'Outbound Links', 'twitter'); return false;">&#xe486;</a>
+        <a class='symbol' id="social-email" href='mailto:hello@kannan-chandra.com'>&#xe424;</a>
+      </div>
+    </div>
+  </div>
+</div>  
+
+<div class="content-wrapper">
+  
+  <div class="section" id="posts">
+    <div class="post">
+      <div class="post-date"> 27 Apr 2014 </div>
+      <h3>WIDS 2014 - Part 3</h3>
+
+      <p>Day two of the conference was held at the other big startup/tech campus, the Science Park. Getting there was three trains and a bus away, so that was a bit of a bummer. The &quot;Getting Here&quot; section of their site says they are &quot;strategically located in the middle of Hong Kong&quot;. No, Science Park. You are not in the center. Yes, if we dug up all the soil in Hong Kong you&#39;d be near the center of gravity, but the <em>people</em> live over <em>there</em>. That&#39;s like Hastings, Nebraska billing itself as &quot;Strategically equidistant from both New York and San Francisco&quot;.</p>
+
+<p><img src="/images/wids2014-lies.png" alt="Pictured: Lies."/></p>
+
+<div class="image-caption">Pictured: Lies.</div>
+
+<!-- <table class="image">
+<caption align="bottom">Pictured: Lies.</caption>
+<tr><td><img src="/images/wids2014-lies.png" alt="Pictured: Lies."/></td></tr>
+</table> -->
+
+<p>I spotted a funky looking giant golden rugby ball thing on the way in and took a photo of it. Asking for directions, I was told that <em>that was the venue</em>.</p>
+
+<p><img src="/images/wids2014-8.jpg" alt="#selfie #nofilter #nomakeup #groupphotoofeveryonewhoattendedifyouthinkaboutit"/></p>
+
+<div class="image-caption">#selfie #nofilter #nomakeup #groupphotoofeveryonewhoattendedifyouthinkaboutit</div>
+
+<!-- <table class="image">
+<caption align="bottom">#selfie #nofilter #nomakeup #groupphotoofeveryonewhoattendedifyouthinkaboutit</caption>
+<tr><td><img src="/images/wids2014-8.jpg" alt="#selfie #nofilter #nomakeup #groupphotoofeveryonewhoattendedifyouthinkaboutit"/></td></tr>
+</table> -->
+
+<p>The first session was by Markku Lepisto from AWS. Broadly, it was a slightly more interesting version of the Azure talk that started off the first day. Atleast there was an attempt to link the Amazon services being shown off to broader cloud concepts. The demo at the end of the session was pretty neat. It was a live demo of the self healing ability of their services. The demo website was being served from both Tokyo and Singapore. When the primary server in Singapore was killed, the automatic health check failed and redirected all traffic to Tokyo within a few seconds of downtime. At the same time, the Singapore server automatically rebooted and took over the traffic once it passed the health checks. Pretty neat.</p>
+
+<p><img src="/images/wids2014-9.jpg" alt=""/></p>
+
+<div class="image-caption"></div>
+
+<!-- <table class="image">
+<caption align="bottom"></caption>
+<tr><td><img src="/images/wids2014-9.jpg" alt=""/></td></tr>
+</table> -->
+
+<p>Next was Jeremy Yuan from Evernote. The talk covered how Evernote used localization to grow internationally (they have more users outside the States than inside). The key takeaway for me from this one was using your API as a localization strategy. A growing startup may be able to get the UI translated to a bunch of languages. But localization goes beyond that, as the app will encounter new use cases that really only arise in that country. Having an API and promoting your platform devs allows them to fill those gaps and bring your platform to a completely new set of users. In Japan, people even wrote loads of guidebooks about using Evernote when they localized there.</p>
+
+<p><img src="/images/wids2014-10.jpg" alt=""/></p>
+
+<div class="image-caption"></div>
+
+<!-- <table class="image">
+<caption align="bottom"></caption>
+<tr><td><img src="/images/wids2014-10.jpg" alt=""/></td></tr>
+</table> -->
+
+<p>There were also a bunch of neat workshops I attended. Matt Urquhart conducted what was hands down the best workshop of the ones I attended. It was an overview of CSRF and XSS exploits. The session was structured around a vulnerable PHP app and the different ways it can be coerced into revealing user information. XSS exploits in particular seem like a lot of fun to play with. I&#39;m not sure if the demo app is up somewhere; I&#39;ll post a link here if I find it. http://escape.alf.nu.</p>
+
+<p><img src="/images/wids2014-11.jpg" alt=""/></p>
+
+<div class="image-caption"></div>
+
+<!-- <table class="image">
+<caption align="bottom"></caption>
+<tr><td><img src="/images/wids2014-11.jpg" alt=""/></td></tr>
+</table> -->
+
+<p>James Tang&#39;s workshop on prototyping in Xcode had a lot of neat details I didn&#39;t know about before. I was pretty surprised how far you could get with just Interface Builder and 3rd party libraries. I tend build all interactive UI using code, since it seems more flexible and it keeps all settings in one place. To a large extent, I probably still will, but I can probably get much further before I leave IB and switch to code. For example, there&#39;s a library that allows you to <a href="https://github.com/jamztang/AnimatedGIFImageSerialization">use GIFs in IB</a>, which can come in really handy for prototyping.</p>
+
+<p><em>And thus endeth the WIDS Chronicles trilogy. Or does it?</em>
+<em>Here are parts <a href="/posts/wids2014-part1">one</a> and <a href="/posts/wids2014-part2">two</a>.</em></p>
+
+
+    </div>
+  </div>
+</div>
+
+    <div id="footer"></div>
+    </body>
+</html>

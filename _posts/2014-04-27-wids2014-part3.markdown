@@ -1,0 +1,31 @@
+---
+layout: post
+title: WIDS 2014 - Part 3
+---
+
+Day two of the conference was held at the other big startup/tech campus, the Science Park. Getting there was three trains and a bus away, so that was a bit of a bummer. The "Getting Here" section of their site says they are "strategically located in the middle of Hong Kong". No, Science Park. You are not in the center. Yes, if we dug up all the soil in Hong Kong you'd be near the center of gravity, but the *people* live over *there*. That's like Hastings, Nebraska billing itself as "Strategically equidistant from both New York and San Francisco".
+
+{% include image.html 	url="/images/wids2014-lies.png" description="Pictured: Lies." %}
+
+I spotted a funky looking giant golden rugby ball thing on the way in and took a photo of it. Asking for directions, I was told that *that was the venue*.
+
+{% include image.html 	url="/images/wids2014-8.jpg" description="#selfie #nofilter #nomakeup #groupphotoofeveryonewhoattendedifyouthinkaboutit" %}
+
+The first session was by Markku Lepisto from AWS. Broadly, it was a slightly more interesting version of the Azure talk that started off the first day. Atleast there was an attempt to link the Amazon services being shown off to broader cloud concepts. The demo at the end of the session was pretty neat. It was a live demo of the self healing ability of their services. The demo website was being served from both Tokyo and Singapore. When the primary server in Singapore was killed, the automatic health check failed and redirected all traffic to Tokyo within a few seconds of downtime. At the same time, the Singapore server automatically rebooted and took over the traffic once it passed the health checks. Pretty neat.
+
+{% include image.html 	url="/images/wids2014-9.jpg" description="" %}
+
+Next was Jeremy Yuan from Evernote. The talk covered how Evernote used localization to grow internationally (they have more users outside the States than inside). The key takeaway for me from this one was using your API as a localization strategy. A growing startup may be able to get the UI translated to a bunch of languages. But localization goes beyond that, as the app will encounter new use cases that really only arise in that country. Having an API and promoting your platform devs allows them to fill those gaps and bring your platform to a completely new set of users. In Japan, people even wrote loads of guidebooks about using Evernote when they localized there.
+
+{% include image.html 	url="/images/wids2014-10.jpg" description="" %}
+
+
+There were also a bunch of neat workshops I attended. Matt Urquhart conducted what was hands down the best workshop of the ones I attended. It was an overview of CSRF and XSS exploits. The session was structured around a vulnerable PHP app and the different ways it can be coerced into revealing user information. XSS exploits in particular seem like a lot of fun to play with. I'm not sure if the demo app is up somewhere; I'll post a link here if I find it. http://escape.alf.nu.
+
+{% include image.html 	url="/images/wids2014-11.jpg" description="" %}
+
+
+James Tang's workshop on prototyping in Xcode had a lot of neat details I didn't know about before. I was pretty surprised how far you could get with just Interface Builder and 3rd party libraries. I tend build all interactive UI using code, since it seems more flexible and it keeps all settings in one place. To a large extent, I probably still will, but I can probably get much further before I leave IB and switch to code. For example, there's a library that allows you to [use GIFs in IB](https://github.com/jamztang/AnimatedGIFImageSerialization), which can come in really handy for prototyping.
+
+*And thus endeth the WIDS Chronicles trilogy. Or does it?*
+*Here are parts [one](/posts/wids2014-part1) and [two](/posts/wids2014-part2).*
