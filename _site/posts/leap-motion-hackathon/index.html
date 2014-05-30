@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Playing with the Leap Motion controller</title>
+        <meta name="viewport" content="width=device-width">
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/css/syntax.css">
+
+        <link rel="stylesheet" href="/css/grid.css">
+
+        <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+        <link rel='stylesheet' href='/css/styles.css' type='text/css'/>
+
+        <script type="text/javascript">
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-47128798-1']);
+            _gaq.push(['_trackPageview']);
+
+            (function() {
+              var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+              ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+              var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            })();
+
+        </script>
+
+        <script type="text/javascript">
+            function trackOutboundLink(link, category, action) { 
+             
+              try { 
+                _gaq.push(['_trackEvent', category , action]); 
+              } catch(err){}
+               
+              setTimeout(function() {
+                document.location.href = link.href;
+              }, 100);
+            }
+        </script>
+    </head>
+    <body>
+
+        <div class="navbar-wrapper banner">
+  <div class="navbar">
+    <div class="content-wrapper">
+      <a href="/"><h1>Kannan C.</h1></a>
+
+      <div class="social-wrapper">
+        <a class='symbol' id="social-fb" href='http://www.facebook.com/kannan.chandra' onClick="trackOutboundLink(this, 'Outbound Links', 'facebook'); return false;">&#xe427;</a>
+        <a class='symbol' id="social-linkedin" href='http://www.linkedin.com/in/kannanchandra' onClick="trackOutboundLink(this, 'Outbound Links', 'linkedin'); return false;">&#xe452;</a>
+        <a class='symbol' id="social-twitter" href='http://twitter.com/kannanator' onClick="trackOutboundLink(this, 'Outbound Links', 'twitter'); return false;">&#xe486;</a>
+        <a class='symbol' id="social-email" href='mailto:hello@kannan-chandra.com'>&#xe424;</a>
+      </div>
+    </div>
+  </div>
+</div>  
+
+<div class="content-wrapper">
+  
+  <div class="section" id="posts">
+    <div class="post">
+      <div class="post-date"> 29 May 2014 </div>
+      <h3>Playing with the Leap Motion controller</h3>
+
+      <p>I&#39;ve been wanting to play around with the <a href="https://www.leapmotion.com/">Leap Motion</a> controller, and the recent <a href="http://codeaholics.hk/">Codeaholics</a> hackathon was perfect for it. We got a full weekend to mess around with the device and SDK. The <a href="http://www.42la.bs/">42labs</a> also had a number of other cool toys like the <a href="http://www.oculusvr.com/">Oculus Rift</a> and the <a href="http://www.gosphero.com/">Sphero</a>.</p>
+
+<p>The <a href="https://developer.leapmotion.com/">Leap SDK</a> is pretty impressive. There are several languages to choose from; I played with the Javascript and C# SDKs. I was pretty impressed that I could use the Javascript SDK to write web apps that are controlled by the device. I&#39;d assumed the scripts could only run locally, but you can actually access the data through the browser. The v1 SDK provided data for the palm and fingertip positions. The v2 &quot;skeletal&quot; SDK can actually provide positions and vectors for every joint in your fingers, and can also give a lot of useful high level data like recognizing the fingers, the hands, and a set of gestures. I personally didn&#39;t find the gesture recognition accurate enough to be useful, but the finger and hand metadata was usually spot on.</p>
+
+<p><a href="https://www.facebook.com/photo.php?v=743869528977741">
+<p><img src="/images/leap-motion-hackation-1.png" alt="Demo video"/></p>
+<div class="image-caption">Demo video</div>
+</a></p>
+
+<p>I&#39;ve never used Unity (or any 3d software before), so I wanted to try to build something. The first thing I built was a simple drum set. The Leap Motion samples are pretty good, and I had almost no trouble with the actual Leap SDK. Most of my issues were with figuring Unity out. Writing small bits of object code and associating them with 3D objects in the GUI reminded me of writing code-behind for Visual Basic forms.</p>
+
+<p>There&#39;s a fundamental problem with using 3D tracking devices (like the Leap or Kinect) and mapping it to a virtual 3D world. There is always going to be a dissonance because while your hands exist in both worlds, the other objects only exist in one of the two. So you have to choose between a one-to-one mapping of hands, which means that your virtual hands cannot behave with realistic physics since they will pass through other virtual objects, or you can give your virtual hand physics, which will throw off the one-to-one mapping whenever the virtual hand encounters a collision. Neither of this is perfect, and unless there is some sort of haptic feedback one just has to choose one of them based on your app.</p>
+
+<p><a href="https://github.com/kannan-chandra/leap-binary-keyboard">The second project</a> I worked on was making a simple keyboard for typing with the Leap. I switched to working in Javascript since I&#39;m much more familiar working in the browser than in Unity. First I made a simple function to map your fingers on one hand to their equivalent binary numbers, if each finger represented either a 1 (extended) or a 0 (bent). The SDK made this pretty easy since there is an actual <code>extended?</code> property on each finger. This becomes harder with the higher numbers since some poses are pretty hard to pull off with your hand (try 01010), so you might need to try a couple times. I mapped the numbers to ASCII. I came up with a simple mechanism for typing to account for the fact that it&#39;s hard to do some of the poses on the first try. The right hand performs the individual letter, and the left hand confirms it with a &quot;squeeze&quot; gesture. This way, you can see the recognized letter and confirm it by squeezing it onto the end of the text. This works pretty well, though two hand tracking does get a bit wonky. I&#39;m not sure if this was a systemic problem or I wasn&#39;t dealing with the data correctly (probably the latter).</p>
+
+<p><a href="https://github.com/kannan-chandra/leap-gesture-trainer/">The third project</a> was an offshoot of the previous one. The difficulty I encountered with using the previous system was because of the naive lettering system (since your hand isn&#39;t really suited to showing binary numbers). I wanted to find some way to implement the <a href="http://www.lifeprint.com/asl101/fingerspelling/images/signlanguageabc02.jpg">American Sign Language alphabet</a>, but without manually defining each pose in code. I turned to brain.js, a neural network trainer. Brain.js has a really easy to use API. You just give it a set of constrained numbers and the expected outputs for each set for training. If the net trains successfully, it will give predicted output for any arbitrary input you throw at it. I used a single frame of fingertip position data, normalized, for the training. The end product is a small app in which you can define symbols and train the model by performing the pose. The results are surprisingly good depending on the set of poses. ASL has some challenges, as a number of poses look really similar to the Leap. But if you choose a set of poses that have a good distance between them, the model recognizes the gesture almost every time. In the demo video I train it to recognize rock-paper-scissors.</p>
+
+<p>There&#39;s probably a few more things I can do with this. A modified version of ASL would probably work pretty well with this system. Some of the ASL letters are also dynamic in nature, so a single frame won&#39;t capture the pose. Multiple frames will also probably help with noise reduction for the other letters. If the training error is sufficiently low, I could probably start appending to a sentence with just the single hand. Alternating between the letter and a neutral pose (like an open palm) would allow you to type out any word, and together with movement gestures for backspace and punctuation should be pretty usable. You can probably increase speed by using both hands and alternating gestures.</p>
+
+<p>I&#39;ve read both praise and criticism of the Leap Motion device. I think the current generation of the hardware does suffer from limited range and tracking issues. I&#39;m not sure if the latter is because of noisy data, or if more can be done on the software side. The v2 skeletal SDK is already much better than the original. It&#39;s a pity there isn&#39;t currently a way to access the raw data, because I&#39;m sure there is a lot that can be done with improving the gesture recognition. There are also interesting possiblities for 3D face scanning, lip reading, etc.</p>
+
+<p>The sensing range of the device is something that&#39;s definitely limiting what can be done. It&#39;s a lot smaller than the natural range of arm movement, so it&#39;s very easy to inadvertantly move out of range. Of course, the tradeoff is that you get really accurate finger positions within that box, something that the Kinect cannot do. It will be interesting to see if upcoming devices like the Myo can break that tradeoff barrier.</p>
+
+
+    </div>
+  </div>
+</div>
+
+    <div id="footer"></div>
+    </body>
+</html>
