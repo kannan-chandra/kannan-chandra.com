@@ -21,7 +21,7 @@
     font-weight: 700;
   }
 
-  p {
+  p, .post {
     font-size: 20px;
     font-weight: 400;
   }
@@ -147,7 +147,7 @@
     margin-right: 5%;
   }
 
-  .post p {
+  .post p, .post ul li {
     line-height: 1.5
   }
 
