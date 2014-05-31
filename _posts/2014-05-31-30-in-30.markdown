@@ -7,7 +7,7 @@ title: 30 Technologies in 30 Days
 
 Inspired by [Shrikant](https://twitter.com/shrikantpatnaik) and [this post](https://www.openshift.com/blogs/learning-30-technologies-in-30-days-a-developer-challenge), I'm going to be taking on the challenge of learning 30 different technologies/libraries over the next 30 days.
 
-My focus is going to frontend web development, so a lot of this is going to be Javascript. I'm going to start off with Javascript frameworks, and over the next 30 days go through popular libraries, pre/postprocessors, testing/automation frameworks, and have a look at mobile frameworks like Phonegap and Ionic. The plan is probably gonna change as I go through it, so I might do some backend stuff near the end as well.
+My focus is going to be front-end web development, so a lot of this is going to be Javascript. I'm going to start off with Javascript frameworks, and over the next 30 days go through popular libraries, pre/postprocessors, testing/automation frameworks, and have a look at mobile frameworks like Phonegap and Ionic. The plan is probably gonna change as I go through it, so I might do some backend stuff near the end as well.
 
 The aim is to get a breadth-first overview of the really popular front-end technologies in use. I'm going to spend a couple hours learning the tool and building something, and I will keep this space updated with what I do.
 
