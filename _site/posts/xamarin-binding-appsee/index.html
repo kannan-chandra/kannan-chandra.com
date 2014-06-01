@@ -107,29 +107,25 @@
         <span class="p">...</span>
 
     <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
+<span class="p">}</span></code></pre></div>
 
 <p>It&#39;s a normal C# class, and the bits in square brackets point to the Objective-C class/method/property you&#39;re wrapping with the following C#.</p>
 
 <p>Objective Sharpie does a pretty good job, but there&#39;s some cleanup left to do. There are a couple of properties with a <code>Verify</code> attribute above them. </p>
 
 <div class="highlight"><pre><code class="c#"><span class="na">[Static, Export (&quot;debugToNSLog&quot;), Verify (&quot;ObjC method massaged into setter property&quot;, &quot;/Users/kannan/Downloads/Appsee/Appsee.framework/Versions/A/Headers/Appsee.h&quot;, Line = 49)]</span>
-<span class="kt">bool</span> <span class="n">DebugToNSLog</span> <span class="p">{</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
-</code></pre></div>
+<span class="kt">bool</span> <span class="n">DebugToNSLog</span> <span class="p">{</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span></code></pre></div>
 
 <p><code>Verify</code> is an invalid attribute and will not compile. Objective Sharpie puts it there to draw your attention. In this case, it&#39;s because Obj-C setter methods were transformed into C# properties. This is alright, so go ahead and remove the <code>Verify</code>.</p>
 
 <div class="highlight"><pre><code class="c#"><span class="na">[Static, Export (&quot;debugToNSLog&quot;)]</span>
-<span class="kt">bool</span> <span class="n">DebugToNSLog</span> <span class="p">{</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
-</code></pre></div>
+<span class="kt">bool</span> <span class="n">DebugToNSLog</span> <span class="p">{</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span></code></pre></div>
 
 <p>There are also a few missing <code>using</code> statements. Add the following:</p>
 
 <div class="highlight"><pre><code class="c#"><span class="k">using</span> <span class="nn">MonoTouch.Foundation</span><span class="p">;</span>
 <span class="k">using</span> <span class="nn">MonoTouch.UIKit</span><span class="p">;</span>
-<span class="k">using</span> <span class="nn">MonoTouch.ObjCRuntime</span><span class="p">;</span>
-</code></pre></div>
+<span class="k">using</span> <span class="nn">MonoTouch.ObjCRuntime</span><span class="p">;</span></code></pre></div>
 
 <p>If you have a look at Appsee&#39;s page about the SDK, it lists a few builtin frameworks that Appsee uses.</p>
 
@@ -142,8 +138,7 @@
 <span class="k">using</span> <span class="nn">MonoTouch.CoreMedia</span><span class="p">;</span>
 <span class="k">using</span> <span class="nn">MonoTouch.CoreVideo</span><span class="p">;</span>
 <span class="k">using</span> <span class="nn">MonoTouch.SystemConfiguration</span><span class="p">;</span>
-<span class="k">using</span> <span class="nn">MonoTouch.CoreAnimation</span><span class="p">;</span>
-</code></pre></div>
+<span class="k">using</span> <span class="nn">MonoTouch.CoreAnimation</span><span class="p">;</span></code></pre></div>
 
 <p>The final <code>ApiDefinitions.cs</code> file looks like this :</p>
 
@@ -206,16 +201,14 @@
 <span class="lineno">57</span> <span class="na">        [Static, Export (&quot;markViewAsSensitive:&quot;)]</span>
 <span class="lineno">58</span>      <span class="k">void</span> <span class="nf">MarkViewAsSensitive</span> <span class="p">(</span><span class="n">UIView</span> <span class="n">view</span><span class="p">);</span>
 <span class="lineno">59</span>  <span class="p">}</span>
-<span class="lineno">60</span> <span class="p">}</span>
-</code></pre></div>
+<span class="lineno">60</span> <span class="p">}</span></code></pre></div>
 
 <p>We need to prepare another file that defines how linking should happen. I&#39;m going to call this file <code>linkwith.cs</code>.</p>
 
 <div class="highlight"><pre><code class="c#"><span class="k">using</span> <span class="nn">MonoTouch.ObjCRuntime</span><span class="p">;</span>
 
 <span class="na">[assembly: LinkWith (&quot;Appsee.a&quot;, LinkTarget.Simulator | LinkTarget.ArmV7 | LinkTarget.ArmV7s, ForceLoad = true,</span>
-<span class="na">   Frameworks = &quot;AVFoundation CoreGraphics CoreMedia CoreVideo QuartzCore SystemConfiguration&quot;)]</span>
-</code></pre></div>
+<span class="na">   Frameworks = &quot;AVFoundation CoreGraphics CoreMedia CoreVideo QuartzCore SystemConfiguration&quot;)]</span></code></pre></div>
 
 <p>The bit that says <code>Frameworks = &quot;...&quot;</code> is important. It contains the list of native libraries we need to link against. Without it, the creation of the binding will go alright, but there will be compilation errors when the resulting DLL is added to your project.</p>
 
@@ -225,13 +218,11 @@
 
 <p>Open up your terminal and navigate over to the folder.</p>
 
-<div class="highlight"><pre><code class="console"><span class="gp">$</span> <span class="nb">cd</span> /Users/kannan/Documents/Appsee
-</code></pre></div>
+<div class="highlight"><pre><code class="console"><span class="gp">$</span> <span class="nb">cd</span> /Users/kannan/Documents/Appsee</code></pre></div>
 
 <p>We use a tool called <code>btouch</code>, provided by Xamarin, to create the binding.</p>
 
-<div class="highlight"><pre><code class="console"><span class="gp">$</span> /Developer/MonoTouch/usr/bin/btouch -unsafe --outdir<span class="o">=</span>tmp -out:Appsee.dll ApiDefinitions.cs -x<span class="o">=</span>linkwith.cs --link-with<span class="o">=</span>Appsee.a,Appsee.a
-</code></pre></div>
+<div class="highlight"><pre><code class="console"><span class="gp">$</span> /Developer/MonoTouch/usr/bin/btouch -unsafe --outdir<span class="o">=</span>tmp -out:Appsee.dll ApiDefinitions.cs -x<span class="o">=</span>linkwith.cs --link-with<span class="o">=</span>Appsee.a,Appsee.a</code></pre></div>
 
 <p>The location of the btouch executable might vary depending on your installation. The <code>out</code> argument defines the name of the output DLL as <code>Appsee.dll</code>.</p>
 

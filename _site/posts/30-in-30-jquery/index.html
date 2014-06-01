@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Day 1: jQuery</title>
+        <meta name="viewport" content="width=device-width">
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/css/syntax.css">
+
+        <link rel="stylesheet" href="/css/grid.css">
+
+        <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+        <link rel='stylesheet' href='/css/styles.css' type='text/css'/>
+
+        <script type="text/javascript">
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-47128798-1']);
+            _gaq.push(['_trackPageview']);
+
+            (function() {
+              var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+              ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+              var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            })();
+
+        </script>
+
+        <script type="text/javascript">
+            function trackOutboundLink(link, category, action) { 
+             
+              try { 
+                _gaq.push(['_trackEvent', category , action]); 
+              } catch(err){}
+               
+              setTimeout(function() {
+                document.location.href = link.href;
+              }, 100);
+            }
+        </script>
+    </head>
+    <body>
+
+        <div class="navbar-wrapper banner">
+  <div class="navbar">
+    <div class="content-wrapper">
+      <a href="/"><h1>Kannan C.</h1></a>
+
+      <div class="social-wrapper">
+        <a class='symbol' id="social-fb" href='http://www.facebook.com/kannan.chandra' onClick="trackOutboundLink(this, 'Outbound Links', 'facebook'); return false;">&#xe427;</a>
+        <a class='symbol' id="social-linkedin" href='http://www.linkedin.com/in/kannanchandra' onClick="trackOutboundLink(this, 'Outbound Links', 'linkedin'); return false;">&#xe452;</a>
+        <a class='symbol' id="social-twitter" href='http://twitter.com/kannanator' onClick="trackOutboundLink(this, 'Outbound Links', 'twitter'); return false;">&#xe486;</a>
+        <a class='symbol' id="social-email" href='mailto:hello@kannan-chandra.com'>&#xe424;</a>
+      </div>
+    </div>
+  </div>
+</div>  
+
+<div class="content-wrapper">
+  
+  <div class="section" id="posts">
+    <div class="post">
+      <div class="post-date"> 01 Jun 2014 </div>
+      <h3>Day 1: jQuery</h3>
+
+      <p>On Day 1, I tackle jQuery, <em>the</em> Javascript library.</p>
+
+<p><img src="/images/30-in-30-1.png" alt=""/></p>
+
+<div class="image-caption"></div>
+
+<p>I&#39;ve put together a small app (I&#39;m using the term very loosely here) that calculates total savings based on annual savings and interest rate. Not a very useful app, but I&#39;ve used it to explore some basic jQuery concepts:</p>
+
+<ul>
+<li>DOM element selection</li>
+<li>DOM manipulation (adding, removing, adding classes)</li>
+<li>Attaching events (click, onchange)</li>
+<li>Load JSON data asynchronously</li>
+<li>Animation</li>
+</ul>
+
+<p>Have a look at the <a href="https://github.com/kannan-chandra/30-in-30/tree/master/day-1-jquery">source code on Github</a>.</p>
+
+<p><strong>Resources</strong></p>
+
+<ul>
+<li>jQuery introduction - http://ejohn.org/apps/workshop/intro/</li>
+<li>jQuery API reference - http://api.jquery.com/</li>
+<li>Currency exchange rates - https://openexchangerates.org</li>
+</ul>
+
+
+    </div>
+  </div>
+</div>
+
+    <div id="footer"></div>
+    </body>
+</html>
