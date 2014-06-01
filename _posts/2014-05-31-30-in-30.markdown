@@ -18,3 +18,5 @@ Rules:
 - Each project will be up on Github with links here.
 
 Onwards!
+
+Day 1 - [jQuery](/posts/30-in-30-jquery)
