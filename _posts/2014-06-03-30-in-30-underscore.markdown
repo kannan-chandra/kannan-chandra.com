@@ -1,0 +1,31 @@
+---
+layout: post
+title: "Day 2: Underscore.js"
+---
+
+On Day 2, I tackle Underscore.js.
+
+{% include 	image.html url="/images/30-in-30-1.png" description="" %}
+
+Underscore is an awesome library that gives functional methods to use on data. I haven't done any actual functional programming, other than using things like lambda functions or list comprehensions in C# and Python. So it took a while to wrap my head around thinking using these functional constructs rather than iteration.
+
+I definitely want to revisit underscore again, because I didn't get around to playing with a lot of the functions under the "Utility" and "Functions" section of the docs. 
+
+I took the JSON data for this exercise from an [Angular example project](https://github.com/angular/angular-phonecat/tree/master/app/phones). The functions I got around to exploring are:
+
+- `each`
+- `map`
+- `reduce`
+- `filter`
+- `chain`
+- underscore templates
+
+I also had to figure out how to deal with multiple asynchronous requests using jQuery, because I was using the `phones` object before all of the JSON files were done loading. I learnt about jQuery's `when` and Javascript's `apply`.
+
+
+Have a look at the [source code on Github](https://github.com/kannan-chandra/30-in-30/tree/master/day-2-underscore).
+
+**Resources**
+
+- Underscore introduction - http://underscorejs.org/
+- JSON data - https://github.com/angular/angular-phonecat/tree/master/app/phones
