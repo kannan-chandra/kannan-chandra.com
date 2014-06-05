@@ -20,3 +20,7 @@ Rules:
 Onwards!
 
 Day 1 - [jQuery](/posts/30-in-30-jquery)
+
+Day 2 - [Underscore.js](/posts/30-in-30-underscore)
+
+Day 3 - [CSS animations](/posts/30-in-30-css-animations)

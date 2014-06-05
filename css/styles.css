@@ -96,6 +96,29 @@
     font-weight: 700;
   }
 
+  p a {
+    position: relative;
+  }
+
+  p a:after {
+    content: '';
+    box-sizing:content-box;
+    position: absolute;
+    top:0px;
+    height:100%;
+    border-bottom: 2px solid #555;
+    width: 0;
+    left: 50%;
+
+    transition: all 0.15s ease;
+  }
+
+  p a:hover:after {
+  border-bottom: 2px solid #555;
+  width:100%;
+  left:0;
+}
+
   a:hover {
     /*text-decoration: underline;*/
     color: #555;
