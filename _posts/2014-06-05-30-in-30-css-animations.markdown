@@ -3,7 +3,7 @@ layout: post
 title: "Day 3: CSS animations"
 ---
 
-On Day 3, I tackle CSS animations.
+On Day 3, I play with CSS animations.
 
 {% include 	image.html url="/images/30-in-30-1.png" description="" %}
 
