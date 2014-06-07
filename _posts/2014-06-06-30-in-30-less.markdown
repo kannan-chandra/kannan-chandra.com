@@ -1,0 +1,26 @@
+---
+layout: post
+title: "Day 4: Less"
+---
+
+On Day 4, I try out Less.
+
+{% include 	image.html url="/images/30-in-30-1.png" description="" %}
+
+I wanted to run through the main differences between Less and SCSS, so I'd have a point of comparison when I do SCSS later. I ran the Less compiler from the command line a few times, and started using SimpLESS to autocompile after that.
+
+Things I covered :
+
+- Variables
+- Mixings
+- Color modifier methods
+- Media queries
+- Overriding Bootstrap's default variables using Less
+
+
+**Resources**
+
+- http://lesscss.org/
+- http://wearekiss.com/simpless
+- http://www.helloerik.com/bootstrap-3-less-workflow-tutorial
+- http://stackoverflow.com/questions/16350779/bootstrap-variable-overriding-with-less
