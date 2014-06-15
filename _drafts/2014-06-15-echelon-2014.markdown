@@ -1,0 +1,24 @@
+---
+layout: post
+title: "Echelon 2014"
+---
+
+![](/images/echelon-1.jpg)
+
+Just got back to Hong Kong after [Echelon 2014](blah) in Singapore! (Which is also the reason for a weeklong [30 day challenge](/posts/30-in-30) hiatus.)
+
+![](/images/echelon-2.jpg)
+
+Ambi Climate had a booth at the Startup Alley along with the other 9 regional winners and a few startups from each country. There was a really good energy to the event, and the crowd was pretty enthusiastic about the product. Being a startup event, a large proportion of the people at the booth were investors. 
+
+![](/images/echelon-3.jpg)
+
+Julian also pitched as part of the Launchpad event, which pits the 10 startups against one another, and we snagged the People's Choice award at the event. Thanks to all those who voted!
+
+I didn't have a chance to attend that many talks since I was at the booth most of the time. Some random takeaways from the few I did attend:
+
+![](/images/echelon-4.jpg)
+
+Eren Bali's talk on building marketplace businesses was *really good*. So many startup pitches tend to be "people have x, people want x, if we were to build a website and throw social media at it, everyone could swap their x!", and Eren's talk really walked through some of the challenges and techniques one can use to overcome the inherent chicken and egg problem. One big one for me were his examples of doing things that don't scale. Paul Graham has a great essay on this, but the examples tended to revolve around providing great customer service. Eren had some great examples, like the textbook marketplace that manually searched Craigslist for buyers and sellers that matched up with user postings.
+
+Another takeaway from the conference was the realization that panel events have a substantially lower signal-noise ratio than talks. It's nothing to do with the competence of the participants; I'm sure they were all qualified to speak on the topic. Just the format of a panel forces all the participants to take shallow stabs at answering the same boring question again and again. In contrast, a talk has a full 20 minutes to deliver one specific opinion, and it can go really in depth. I honestly didn't learn a single thing from either of the two panel events I attended. That's a pity, since the participants all seemed like pretty experienced people who probably would have given very interesting talks individually.
