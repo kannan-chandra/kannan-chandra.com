@@ -13,6 +13,8 @@ Restaurant menu app
 - cart that keeps getting updated with items and total
 - can remove from cart
 
+
+
 Backbone
 - models
 - collections
@@ -22,10 +24,19 @@ Backbone
 - view
 
 
+Addy Osmani book app
+- add genre to model
+- add genre to view
+- make a view to show books of a genre
+- add routes and make it so /genre/{genre_name} will show that
+
+
+
 http://backbonejs.org/docs/todos.html
 http://backbonejs.org/examples/todos/index.html
 http://backbonejs.org/
 https://github.com/tastejs/todomvc/blob/gh-pages/architecture-examples%2Fbackbone%2Findex.html
+https://github.com/addyosmani/backbone-fundamentals
 
 
 http://arturadib.com/hello-backbonejs/

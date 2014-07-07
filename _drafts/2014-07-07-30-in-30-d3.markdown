@@ -1,0 +1,29 @@
+---
+layout: post
+title: "Day 1: jQuery"
+---
+
+On Day 5, I tackle D3.js.
+
+{% include 	image.html url="/images/30-in-30-1.png" description="" %}
+
+
+Todo
+----
+- Bar graph tutorial http://alignedleft.com/tutorials/d3
+- Modify to line graph http://bl.ocks.org/mbostock/3883245
+- Transitions http://chimera.labs.oreilly.com/books/1230000000345/ch09.html#_transitions
+- Map http://chimera.labs.oreilly.com/books/1230000000345/ch12.html#_paths
+
+
+
+
+
+
+Have a look at the [source code on Github](https://github.com/kannan-chandra/30-in-30/tree/master/day-1-jquery).
+
+**Resources**
+
+- jQuery introduction - http://ejohn.org/apps/workshop/intro/
+- jQuery API reference - http://api.jquery.com/
+- Currency exchange rates - https://openexchangerates.org
