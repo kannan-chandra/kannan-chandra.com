@@ -90,7 +90,7 @@
 
 <p>For the output file, I&#39;m using the name <code>ApiDefinitions.cs</code>. You can use any name <em>except</em> <code>Appsee</code>. If the file and the interface have the same name, you&#39;re going to encounter errors down the line. The contents of the file look like this :</p>
 
-<div class="highlight"><pre><code class="c#"><span class="k">using</span> <span class="nn">System.Drawing</span><span class="p">;</span>
+<div class="highlight"><pre><code class="language-c#" data-lang="c#"><span class="k">using</span> <span class="nn">System.Drawing</span><span class="p">;</span>
 <span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
 
 <span class="k">namespace</span> <span class="nn">Appsee</span> <span class="p">{</span>
@@ -113,17 +113,17 @@
 
 <p>Objective Sharpie does a pretty good job, but there&#39;s some cleanup left to do. There are a couple of properties with a <code>Verify</code> attribute above them. </p>
 
-<div class="highlight"><pre><code class="c#"><span class="na">[Static, Export (&quot;debugToNSLog&quot;), Verify (&quot;ObjC method massaged into setter property&quot;, &quot;/Users/kannan/Downloads/Appsee/Appsee.framework/Versions/A/Headers/Appsee.h&quot;, Line = 49)]</span>
+<div class="highlight"><pre><code class="language-c#" data-lang="c#"><span class="na">[Static, Export (&quot;debugToNSLog&quot;), Verify (&quot;ObjC method massaged into setter property&quot;, &quot;/Users/kannan/Downloads/Appsee/Appsee.framework/Versions/A/Headers/Appsee.h&quot;, Line = 49)]</span>
 <span class="kt">bool</span> <span class="n">DebugToNSLog</span> <span class="p">{</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span></code></pre></div>
 
 <p><code>Verify</code> is an invalid attribute and will not compile. Objective Sharpie puts it there to draw your attention. In this case, it&#39;s because Obj-C setter methods were transformed into C# properties. This is alright, so go ahead and remove the <code>Verify</code>.</p>
 
-<div class="highlight"><pre><code class="c#"><span class="na">[Static, Export (&quot;debugToNSLog&quot;)]</span>
+<div class="highlight"><pre><code class="language-c#" data-lang="c#"><span class="na">[Static, Export (&quot;debugToNSLog&quot;)]</span>
 <span class="kt">bool</span> <span class="n">DebugToNSLog</span> <span class="p">{</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span></code></pre></div>
 
 <p>There are also a few missing <code>using</code> statements. Add the following:</p>
 
-<div class="highlight"><pre><code class="c#"><span class="k">using</span> <span class="nn">MonoTouch.Foundation</span><span class="p">;</span>
+<div class="highlight"><pre><code class="language-c#" data-lang="c#"><span class="k">using</span> <span class="nn">MonoTouch.Foundation</span><span class="p">;</span>
 <span class="k">using</span> <span class="nn">MonoTouch.UIKit</span><span class="p">;</span>
 <span class="k">using</span> <span class="nn">MonoTouch.ObjCRuntime</span><span class="p">;</span></code></pre></div>
 
@@ -133,7 +133,7 @@
 
 <p>We need to add <code>using</code> statements for these as well, so go ahead and do that :</p>
 
-<div class="highlight"><pre><code class="c#"><span class="k">using</span> <span class="nn">MonoTouch.AVFoundation</span><span class="p">;</span>
+<div class="highlight"><pre><code class="language-c#" data-lang="c#"><span class="k">using</span> <span class="nn">MonoTouch.AVFoundation</span><span class="p">;</span>
 <span class="k">using</span> <span class="nn">MonoTouch.CoreGraphics</span><span class="p">;</span>
 <span class="k">using</span> <span class="nn">MonoTouch.CoreMedia</span><span class="p">;</span>
 <span class="k">using</span> <span class="nn">MonoTouch.CoreVideo</span><span class="p">;</span>
@@ -142,7 +142,7 @@
 
 <p>The final <code>ApiDefinitions.cs</code> file looks like this :</p>
 
-<div class="highlight"><pre><code class="c#"><span class="lineno"> 1</span> <span class="k">using</span> <span class="nn">System.Drawing</span><span class="p">;</span>
+<div class="highlight"><pre><code class="language-c#" data-lang="c#"><span class="lineno"> 1</span> <span class="k">using</span> <span class="nn">System.Drawing</span><span class="p">;</span>
 <span class="lineno"> 2</span> <span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
 <span class="lineno"> 3</span> <span class="k">using</span> <span class="nn">MonoTouch.Foundation</span><span class="p">;</span>
 <span class="lineno"> 4</span> <span class="k">using</span> <span class="nn">MonoTouch.UIKit</span><span class="p">;</span>
@@ -205,7 +205,7 @@
 
 <p>We need to prepare another file that defines how linking should happen. I&#39;m going to call this file <code>linkwith.cs</code>.</p>
 
-<div class="highlight"><pre><code class="c#"><span class="k">using</span> <span class="nn">MonoTouch.ObjCRuntime</span><span class="p">;</span>
+<div class="highlight"><pre><code class="language-c#" data-lang="c#"><span class="k">using</span> <span class="nn">MonoTouch.ObjCRuntime</span><span class="p">;</span>
 
 <span class="na">[assembly: LinkWith (&quot;Appsee.a&quot;, LinkTarget.Simulator | LinkTarget.ArmV7 | LinkTarget.ArmV7s, ForceLoad = true,</span>
 <span class="na">   Frameworks = &quot;AVFoundation CoreGraphics CoreMedia CoreVideo QuartzCore SystemConfiguration&quot;)]</span></code></pre></div>
@@ -218,11 +218,11 @@
 
 <p>Open up your terminal and navigate over to the folder.</p>
 
-<div class="highlight"><pre><code class="console"><span class="gp">$</span> <span class="nb">cd</span> /Users/kannan/Documents/Appsee</code></pre></div>
+<div class="highlight"><pre><code class="language-console" data-lang="console"><span class="gp">$</span> <span class="nb">cd</span> /Users/kannan/Documents/Appsee</code></pre></div>
 
 <p>We use a tool called <code>btouch</code>, provided by Xamarin, to create the binding.</p>
 
-<div class="highlight"><pre><code class="console"><span class="gp">$</span> /Developer/MonoTouch/usr/bin/btouch -unsafe --outdir<span class="o">=</span>tmp -out:Appsee.dll ApiDefinitions.cs -x<span class="o">=</span>linkwith.cs --link-with<span class="o">=</span>Appsee.a,Appsee.a</code></pre></div>
+<div class="highlight"><pre><code class="language-console" data-lang="console"><span class="gp">$</span> /Developer/MonoTouch/usr/bin/btouch -unsafe --outdir<span class="o">=</span>tmp -out:Appsee.dll ApiDefinitions.cs -x<span class="o">=</span>linkwith.cs --link-with<span class="o">=</span>Appsee.a,Appsee.a</code></pre></div>
 
 <p>The location of the btouch executable might vary depending on your installation. The <code>out</code> argument defines the name of the output DLL as <code>Appsee.dll</code>.</p>
 
