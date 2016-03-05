@@ -50,6 +50,14 @@
     font-weight: 300;
   }
 
+  .bio.signup p {
+    font-size: 20px;
+    font-weight: 300;
+  }
+
+
+
+
   .section h2 {
     font-size: 50px;
     font-weight: 100;
@@ -360,6 +368,10 @@
       width: 330px;
     }
 
+    .bio.signup {
+      width: 400px;
+    }
+
     .banner {
       min-width: inherit;
       background: url("/images/background.jpg") #111 no-repeat;
@@ -368,7 +380,7 @@
   }
 
   @media screen and (max-width: 750px) {
-    .bio {
+    .bio, .bio.signup {
       padding: 10px;
       position: absolute;
       top:inherit;
