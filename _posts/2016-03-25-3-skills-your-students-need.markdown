@@ -10,4 +10,4 @@ When I plan lessons, I start by outlining the main topics to be covered in a cou
 
 The students have turned up at my course to learn iOS development. Ostensibly. But the reason they’ve really come here is to *become iOS developers*. And those are two different things. Knowing the difference means that I need to focus on building their skills as developers.
 
-Continue reading on Medium.
+Continue reading [on Medium](https://medium.com/@kannan.chandra/the-3-skills-you-need-to-build-in-your-programming-students-8acdbfc8f30c#.41zqock1h).
